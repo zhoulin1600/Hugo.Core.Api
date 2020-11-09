@@ -1,0 +1,566 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hugo.Core.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Hugo.Core.WebApi.Controllers.AccountController">
+            <summary>
+            Api控制器：账户操作
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AccountController.LoginManage(System.String,System.String)">
+            <summary>
+            管理后台登录
+            </summary>
+            <param name="loginName">登录名</param>
+            <param name="loginPwd">登录密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AccountController.GetLoginManageData">
+            <summary>
+            获取管理后台登录用户数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController">
+            <summary>
+            Api控制器：自动生成框架代码文件
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.ATEST(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            测试接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_AutoFrame_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            创建整体框架文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <param name="datamodelOpen">实体数据层开关</param>
+            <param name="viewmodelOpen">视图数据层开关</param>
+            <param name="repositoryOpen">仓储层开关</param>
+            <param name="serviceOpen">服务层开关</param>
+            <param name="controllerOpen">控制器开关</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_DataModel_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建数据实体层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_DataView_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建数据视图层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_IRepository_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建仓储接口层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_Repository_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建仓储实现层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_IService_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建服务接口层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_Service_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建服务实现层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.AutoCodeFileGenerationController.Create_Controller_Files(Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建Api控制器层文件
+            </summary>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.RestfulApiController">
+            <summary>
+            RestfulApi
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.GetIdInfo(System.String)">
+            <summary>
+            HttpGet（传统Url参数方式）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.GetId(System.String)">
+            <summary>
+            HttpGet（Restful方式）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.GetList">
+            <summary>
+            HttpGet（无参方式）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.Delete(System.String)">
+            <summary>
+            HttpDelete（传统Url参数方式）
+            </summary>
+            <param name="id">系统角色id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.Remove(System.String)">
+            <summary>
+            HttpDelete（Restful方式）
+            </summary>
+            <param name="id">系统角色id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.Add(Hugo.Core.DataModel.Sys_User)">
+            <summary>
+            HttpPost - 新增
+            </summary>
+            <param name="model">系统角色信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.RestfulApiController.Edit(System.String,Hugo.Core.DataModel.Sys_User)">
+            <summary>
+            HttpPut - 修改
+            </summary>
+            <param name="model">系统角色信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_ActionController">
+            <summary>
+            Api控制器：系统功能信息
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ActionController.Add(Hugo.Core.DataView.DTO.Sys_Action_Add)">
+            <summary>
+            添加系统功能
+            </summary>
+            <param name="model">系统功能信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ActionController.Edit(Hugo.Core.DataView.DTO.Sys_Action_Edit)">
+            <summary>
+            编辑系统功能
+            </summary>
+            <param name="model">系统功能信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ActionController.Remove(System.String)">
+            <summary>
+            删除指定id系统功能信息
+            </summary>
+            <param name="id">系统功能id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ActionController.Get(System.String)">
+            <summary>
+            获取指定id系统功能信息
+            </summary>
+            <param name="id">系统功能id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ActionController.GetPageList(Hugo.Core.Common.PageRequest{Hugo.Core.DataView.View_Sys_Action})">
+            <summary>
+            获取分页系统功能信息列表
+            </summary>
+            <param name="pageRequest">分页查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_ApplicationController">
+            <summary>
+            Api控制器：系统应用信息
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ApplicationController.Add(Hugo.Core.DataView.DTO.Sys_Application_Add)">
+            <summary>
+            添加系统应用
+            </summary>
+            <param name="model">系统应用信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ApplicationController.Edit(Hugo.Core.DataView.DTO.Sys_Application_Edit)">
+            <summary>
+            编辑系统应用
+            </summary>
+            <param name="model">系统应用信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ApplicationController.Remove(System.String)">
+            <summary>
+            删除指定id系统应用信息
+            </summary>
+            <param name="id">系统应用id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ApplicationController.Get(System.String)">
+            <summary>
+            获取指定id系统应用信息
+            </summary>
+            <param name="id">系统应用id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_ApplicationController.GetPageList(Hugo.Core.Common.PageRequest{Hugo.Core.DataView.View_Sys_Application})">
+            <summary>
+            获取分页系统应用信息列表
+            </summary>
+            <param name="pageRequest">分页查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_LogController">
+            <summary>
+            Api控制器：系统日志信息
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_LogController.GetLogType">
+            <summary>
+            获取系统日志类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_LogController.GetPageList(Hugo.Core.Common.PageRequest{Hugo.Core.DataView.View_Sys_Log})">
+            <summary>
+            获取分页系统日志信息列表
+            </summary>
+            <param name="pageRequest">分页查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_MenuController">
+            <summary>
+            Api控制器：系统菜单信息
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_MenuController.Add(Hugo.Core.DataView.DTO.Sys_Menu_Add)">
+            <summary>
+            添加系统菜单
+            </summary>
+            <param name="model">系统菜单信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_MenuController.Edit(Hugo.Core.DataView.DTO.Sys_Menu_Edit)">
+            <summary>
+            编辑系统菜单
+            </summary>
+            <param name="model">系统菜单信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_MenuController.Remove(System.String)">
+            <summary>
+            删除指定id系统菜单信息
+            </summary>
+            <param name="id">系统菜单id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_MenuController.Get(System.String)">
+            <summary>
+            获取指定id系统菜单信息
+            </summary>
+            <param name="id">系统菜单id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_MenuController.GetPageList(Hugo.Core.Common.PageRequest{Hugo.Core.DataView.View_Sys_Menu})">
+            <summary>
+            获取分页系统菜单信息列表
+            </summary>
+            <param name="pageRequest">分页查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_PermissionController">
+            <summary>
+            Api控制器：系统权限信息
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_RoleController">
+            <summary>
+            Api控制器：系统角色信息
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_RoleController.Add(Hugo.Core.DataView.DTO.Sys_Role_Add)">
+            <summary>
+            添加系统角色
+            </summary>
+            <param name="model">系统角色信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_RoleController.Edit(Hugo.Core.DataView.DTO.Sys_Role_Edit)">
+            <summary>
+            编辑系统角色
+            </summary>
+            <param name="model">系统角色信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_RoleController.Remove(System.String)">
+            <summary>
+            删除指定id系统角色信息
+            </summary>
+            <param name="id">系统角色id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_RoleController.Get(System.String)">
+            <summary>
+            获取指定id系统角色信息
+            </summary>
+            <param name="id">系统角色id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_RoleController.GetPageList(Hugo.Core.Common.PageRequest{Hugo.Core.DataView.View_Sys_Role})">
+            <summary>
+            获取分页系统角色信息列表
+            </summary>
+            <param name="pageRequest">分页查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_UserController">
+            <summary>
+            Api控制器：系统用户信息
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_UserController.Add(Hugo.Core.DataView.DTO.Sys_User_Add)">
+            <summary>
+            添加系统用户
+            </summary>
+            <param name="model">系统用户信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_UserController.Edit(Hugo.Core.DataView.DTO.Sys_User_Edit)">
+            <summary>
+            编辑系统用户
+            </summary>
+            <param name="model">系统用户信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_UserController.Remove(System.String)">
+            <summary>
+            删除指定id系统用户信息
+            </summary>
+            <param name="id">系统用户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_UserController.Get(System.String)">
+            <summary>
+            获取指定id系统用户信息
+            </summary>
+            <param name="id">系统用户id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.Sys_UserController.GetPageList(Hugo.Core.Common.PageRequest{Hugo.Core.DataView.View_Sys_User})">
+            <summary>
+            获取分页系统用户信息列表
+            </summary>
+            <param name="pageRequest">分页查询模型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.Sys_UserRoleController">
+            <summary>
+            Api控制器：用户角色信息
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.TestController">
+            <summary>
+            测试API控制器
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisQueue(System.String)">
+            <summary>
+            转为有序的GUID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestJobStar">
+            <summary>
+            Quartz计划任务测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestGuid">
+            <summary>
+            转为有序的GUID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestJWTManager">
+            <summary>
+            JWT登录接口授权
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestJWTAdmin">
+            <summary>
+            JWT登录接口授权
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestJWTLogin(System.String,System.String)">
+            <summary>
+            JWT登录获取Role和Token
+            </summary>
+            <param name="name"></param>
+            <param name="pass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRequestHeader">
+            <summary>
+            请求头测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestAutomapper(System.String)">
+            <summary>
+            Automapper测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestLogging1">
+            <summary>
+            日志测试（ILogger）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestLogging2">
+            <summary>
+            日志测试（log4net）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestLogging3(System.String)">
+            <summary>
+            日志测试（全局）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestSignalR">
+            <summary>
+            SignalR测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisCache">
+            <summary>
+            Redis缓存测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestNonResult">
+            <summary>
+            空响应测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestSnowflakeId(System.Int64,System.Int64)">
+            <summary>
+            雪花ID测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestDateTime(System.Int64,System.Int64)">
+            <summary>
+            时间转换测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestEnum">
+            <summary>
+            枚举列表测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.TestController.Member_Identity">
+            <summary>
+            会员身份（1：游客，2：商家，3：主播）
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.WebApi.Controllers.TestController.Member_Identity.游客">
+            <summary>
+            游客
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.WebApi.Controllers.TestController.Member_Identity.商家">
+            <summary>
+            商家
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.WebApi.Controllers.TestController.Member_Identity.主播">
+            <summary>
+            主播
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.Hello">
+            <summary>
+            测试接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.Controllers.UploadController">
+            <summary>
+            Api控制器：上传操作
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.UploadController.GetAbsolutePath(System.String)">
+            <summary>
+            获取绝对物理路径
+            </summary>
+            <param name="virtualPath">虚拟路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.UploadController.UploadFileByForm">
+            <summary>
+            上传文件（API服务器）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.UploadController.UploadImage">
+            <summary>
+            上传图片（资源服务器）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.UploadController.UploadFile">
+            <summary>
+            上传文件（资源服务器）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.WebApi.MessageQueue.RedisSubscribe">
+            <summary>
+            Redis消息队列订阅者
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.WebApi.MessageQueue.RedisSubscribe.SubRedisTest1(System.String)">
+            <summary>
+            消费者1
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.MessageQueue.RedisSubscribe.SubRedisTest2(System.String)">
+            <summary>
+            消费者2
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

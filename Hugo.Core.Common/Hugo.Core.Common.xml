@@ -1,0 +1,3773 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hugo.Core.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Hugo.Core.Common.AOP.CacheBaseAOP">
+            <summary>
+            AOP缓存抽象基类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.CacheBaseAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            AOP缓存的抽象拦截方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.CacheBaseAOP.CustomCacheKey(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            自定义缓存的key
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.CacheBaseAOP.GetArgumentValue(System.Object)">
+            <summary>
+            object 转 string
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.CacheMemoryAOP">
+            <summary>
+            Memory缓存数据拦截器
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.CacheMemoryAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.CacheRedisAOP">
+            <summary>
+            Redis缓存数据拦截器
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.CacheRedisAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.MethodLogAOP">
+            <summary>
+            Method方法日志拦截器，继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.MethodLogAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor接口唯一方法
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.MethodLogAOP.IsAsyncMethod(System.Reflection.MethodInfo)">
+            <summary>
+            当前方法是否异步方法
+            </summary>
+            <param name="method">执行的方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.MethodLogAOP.SuccessActionAsync(Castle.DynamicProxy.IInvocation,System.String,System.Object)">
+            <summary>
+            异步方法成功执行处理
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+            <param name="dataIntercept">记录被拦截方法的相关信息</param>
+            <param name="result">返回结果</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.InternalAsyncHelper">
+            <summary>
+            内部异步处理帮助
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.InternalAsyncHelper.AwaitTaskWithPostActionAndFinally(System.Threading.Tasks.Task,System.Func{System.Threading.Tasks.Task},System.Action{System.Exception})">
+            <summary>
+            无返回的异步方法
+            </summary>
+            <param name="actualReturnValue"></param>
+            <param name="postAction"></param>
+            <param name="finalAction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.OperationLogAOP">
+            <summary>
+            用户操作日志拦截器，继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.OperationLogAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.OperationLogAOP.Sys_Log">
+            <summary>
+            系统日志信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AOP.OperationLogAOP.Sys_Log.IP">
+            <summary>
+            <para>属性描述：IP地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AOP.OperationLogAOP.Sys_Log.OperatorId">
+            <summary>
+            <para>属性描述：操作人ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AOP.OperationLogAOP.Sys_Log.OperatorName">
+            <summary>
+            <para>属性描述：操作人名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AOP.OperationLogAOP.Sys_Log.LogType">
+            <summary>
+            <para>属性描述：日志类型（1：新增，2：编辑，3：删除，4：查询）</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AOP.OperationLogAOP.Sys_Log.LogContent">
+            <summary>
+            <para>属性描述：日志内容</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.AOP.SqlSugarTransactionAOP">
+            <summary>
+            SqlSugar数据库事务拦截器，继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.SqlSugarTransactionAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法 
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="M:Hugo.Core.Common.AOP.SqlSugarTransactionAOP.IsAsyncMethod(System.Reflection.MethodInfo)">
+            <summary>
+            判断是否异步方法
+            </summary>
+            <param name="method">方法</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.AccessToken">
+            <summary>
+            访问令牌类
+            <para>NuGet：Install-Package IdentityModel</para>
+            <para>NuGet：Install-Package Microsoft.AspNetCore.Authentication.JwtBearer</para>
+            <para>NuGet：Install-Package Microsoft.AspNetCore.Authorization</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Auth.AccessToken.IssueJwtToken(Hugo.Core.Common.Auth.JwtTokenData)">
+            <summary>
+            颁发JwtToken字符串
+            </summary>
+            <param name="tokenModel">令牌模型</param>
+            <returns>JwtToken字符串</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Auth.AccessToken.IssueJwtToken(Hugo.Core.Common.Auth.JwtTokenData,Hugo.Core.Common.Auth.AuthorizationRequirement)">
+            <summary>
+            颁发JwtToken字符串
+            </summary>
+            <param name="jwtTokenData">JWT令牌数据模型</param>
+            <param name="authorizationRequirement">授权条件配置信息</param>
+            <returns>JwtToken字符串</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Auth.AccessToken.SerializeJwtToken(System.String)">
+            <summary>
+            解析JwtToken字符串
+            </summary>
+            <param name="jwtToken">JwtToken字符串</param>
+            <returns>令牌模型</returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.JwtTokenInfo">
+            <summary>
+            JWT令牌生成模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenInfo.token">
+            <summary>
+            Token令牌
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenInfo.expiration_time">
+            <summary>
+            过期时间（秒）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenInfo.token_type">
+            <summary>
+            令牌类型
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.JwtTokenData">
+            <summary>
+            JWT令牌数据模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenData.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenData.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenData.UserData">
+            <summary>
+            用户数据
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenData.Expiration">
+            <summary>
+            过期时间（秒）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.JwtTokenData.Role">
+            <summary>
+            角色（多个角色 , 隔开）
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.AuthenticationJWTService">
+            <summary>
+            认证服务注入扩展（基于JWT权限认证）
+            <para>NuGet：Install-Package Microsoft.AspNetCore.Authentication.JwtBearer</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Auth.AuthenticationJWTService.AddAuthenticationJWTService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            认证服务注入（基于JWT权限认证）
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.AuthorityItem">
+            <summary>
+            权限详情自定义项
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorityItem.Role">
+            <summary>
+            用户或角色或其他凭据名称
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorityItem.Url">
+            <summary>
+            请求Url
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.AuthorizationRequirement">
+            <summary>
+            授权条件配置信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.Issuer">
+            <summary>
+            颁发者
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.Audience">
+            <summary>
+            订阅者
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.Expiration">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.SigningCredentials">
+            <summary>
+            颁发者签名验证凭据
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.ClaimType">
+            <summary>
+            认证授权类型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.Authorities">
+            <summary>
+            权限详情集合(Role和Url的关系)
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.LoginAction">
+            <summary>
+            请求Token地址-登录Action
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Auth.AuthorizationRequirement.DeniedAction">
+            <summary>
+            无权限跳转地址-404Action
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Auth.AuthorizationRequirement.#ctor(System.String,System.String,System.TimeSpan,Microsoft.IdentityModel.Tokens.SigningCredentials,System.String,System.Collections.Generic.List{Hugo.Core.Common.Auth.AuthorityItem})">
+            <summary>
+            授权条件自定义模型
+            </summary>
+            <param name="issuer">颁发者</param>
+            <param name="audience">订阅者</param>
+            <param name="expiration">过期时间</param>
+            <param name="signingCredentials">颁发者签名验证凭据</param>
+            <param name="claimType">认证授权类型</param>
+            <param name="authorities">权限详情集合</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Auth.AuthorizationService">
+            <summary>
+            授权服务注入扩展
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Auth.AuthorizationService.AddAuthorizationService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            授权服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.AutofacRegister.AutofacContainer">
+            <summary>
+            Autofac服务容器（ IOC容器，DI依赖注入，AOP切面等 ）
+            <para>NuGet：Install-Package Autofac.Extras.DynamicProxy（Autofac的动态代理，依赖Autofac）</para>
+            <para>NuGet：Install-Package Autofac.Extensions.DependencyInjection（Autofac的依赖注入扩展）</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration">
+            <summary>
+            自动生成框架代码文件
+            <para>基于SqlSugar-DbFirst</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_DataModel_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建数据实体层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_DataView_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建数据视图层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_IRepository_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建仓储接口层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_Repository_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建仓储实现层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_IService_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建服务接口层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_Service_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建服务实现层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_Controller_Files(SqlSugar.ISqlSugarClient,Hugo.Core.Common.AutoGenerate.CodeFileModel)">
+            <summary>
+            创建Api控制器层文件
+            </summary>
+            <param name="sqlSugarClient">SqlSugar上下文</param>
+            <param name="codeFileModel">代码文件生成模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoGenerate.AutoCodeFileGeneration.Create_Files(System.Collections.Generic.Dictionary{System.String,System.String},System.String,Hugo.Core.Common.AutoGenerate.SubPathModel,System.String)">
+            <summary>
+            批量文件生成
+            </summary>
+            <param name="dictList">模板内容字典集合</param>
+            <param name="mainFolderPath">文件夹主路径</param>
+            <param name="subPathModel">文件夹从路径</param>
+            <param name="fileNameTemp">文件名模板</param>
+        </member>
+        <member name="T:Hugo.Core.Common.AutoGenerate.CodeFileModel">
+            <summary>
+            代码文件生成模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.CodeFileModel.TableNames">
+            <summary>
+            数据库表名（空则全部）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.CodeFileModel.MainFolderPath">
+            <summary>
+            主文件夹路径
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.CodeFileModel.SubPathModel">
+            <summary>
+            子路径模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.CodeFileModel.NameSpace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.CodeFileModel.InheritanceClass">
+            <summary>
+            继承类
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.AutoGenerate.SubPathModel">
+            <summary>
+            次级路径模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.SubPathModel.PathOpen">
+            <summary>
+            次级路径开关
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.SubPathModel.AutoTable">
+            <summary>
+            自动从表名获取子路径（表名：System_Table，子路径名：System）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.AutoGenerate.SubPathModel.SubFolderPath">
+            <summary>
+            子文件夹路径名
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.AutoMapperTool.AutoMapperHelper">
+            <summary>
+            AutoMapper扩展帮助类
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.AutoMapperTool.AutoMapperService">
+            <summary>
+            AutoMapper映射服务注入扩展
+            <para>NuGet：Install-Package AutoMapper</para>
+            <para>NuGet：Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoMapperTool.AutoMapperService.AddAutoMapperService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AutoMapper映射服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoMapperTool.AutoMapperService.MapType(System.Reflection.Assembly)">
+            <summary>
+            通过反射自动化注册（继承自IProfile）的映射配置
+            </summary>
+            <param name="assembly">程序集</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Cache.MemoryCacheService">
+            <summary>
+            Memory缓存服务注入扩展
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Cache.MemoryCacheService.AddMemoryCacheService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Memory缓存服务注入
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Hugo.Core.Common.Cache.RedisCacheService">
+            <summary>
+            CSRedisCore缓存服务注入扩展
+            <para>NuGet：Install-Package CSRedisCore</para>
+            <para>NuGet：Install-Package Caching.CSRedis</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Cache.RedisCacheService.AddCSRedisCacheService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            CSRedisCore缓存服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Controller.BaseController">
+            <summary>
+            自定义路由模版
+            <para>用于解决swagger文档No operations defined in spec!问题</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Controller.BaseController.CustomPara">
+            <summary>
+            自定义请求头参数
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.GetCustomPara">
+            <summary>
+            获取请求头中的商户店铺ID
+            </summary>
+            <returns>商户店铺ID</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.JsonContent(System.String)">
+            <summary>
+            返回JSON
+            </summary>
+            <param name="jsonStr">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.HtmlContent(System.String)">
+            <summary>
+            返回html
+            </summary>
+            <param name="body">html内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.Success">
+            <summary>
+            返回成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.Success``1(``0)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="data">返回数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.Success``1(``0,System.String)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="data">返回数据</param>
+            <param name="message">返回消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.Error">
+            <summary>
+            返回错误
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.Error(System.String)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="message">错误提示</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Controller.BaseController.Error(System.String,System.Int32)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="message">错误提示</param>
+            <param name="errorCode">错误代码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Cors.CorsService">
+            <summary>
+            Cors跨域服务注入扩展
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Cors.CorsService.AddCorsService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Cors跨域策略服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.ApiResult">
+            <summary>
+            响应结果
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.ApiResult.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.ApiResult.StatusCode">
+            <summary>
+            状态码（默认：200-正常）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.ApiResult.Message">
+            <summary>
+            响应信息
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ApiResult`1">
+            <summary>
+            响应结果
+            </summary>
+            <typeparam name="T">Data数据</typeparam>
+        </member>
+        <member name="P:Hugo.Core.Common.ApiResult`1.Data">
+            <summary>
+            响应数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`1">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`2">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`3">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`4">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`5">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`6">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`7">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`8">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`9">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GenericData`10">
+            <summary>
+            泛型传递数据
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.PageRequest">
+            <summary>
+            分页请求模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest.PageIndex">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest.PageSize">
+            <summary>
+            页容量
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.PageRequest`1">
+            <summary>
+            分页模型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest`1.Search">
+            <summary>
+            会员字段（作为查询条件）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest`1.BeginDateTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest`1.EndDateTime">
+            <summary>
+            结束时间
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest`1.SortField">
+            <summary>
+            排序字段
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageRequest`1.SortType">
+            <summary>
+            排序类型（升序：ASC，降序：DESC）默认：降序
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.PageResult`1">
+            <summary>
+            分页数据查询返回对象
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageResult`1.PageIndex">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageResult`1.PageSize">
+            <summary>
+            页容量
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageResult`1.PageCount">
+            <summary>
+            页数量
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageResult`1.PageData">
+            <summary>
+            页数据列表
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.PageResult`1.TotalCount">
+            <summary>
+            数据总量
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GlobalExceptionMiddleware">
+            <summary>
+            全局异常捕获中间件
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.GlobalExceptionMiddleware.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.Int32,System.String)">
+            <summary>
+            异常错误信息捕获，将错误信息用Json方式返回
+            </summary>
+            <param name="context">HttpContext</param>
+            <param name="statusCode"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.GlobalExceptionMiddlewareExtension">
+            <summary>
+            全局异常捕获管道中间件扩展类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.GlobalExceptionMiddlewareExtension.UseGlobalExceptionMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            启用全局异常捕获中间件
+            </summary>
+            <param name="app">应用构造器</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Extension">
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+            <summary>
+            拓展类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ContainsFilter``1(Microsoft.AspNetCore.Mvc.Filters.FilterContext)">
+            <summary>
+            是否拥有某过滤器
+            </summary>
+            <typeparam name="T">过滤器类型</typeparam>
+            <param name="actionExecutingContext">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToString(System.Byte[])">
+            <summary>
+            byte[]转string
+            注：默认使用UTF8编码
+            </summary>
+            <param name="bytes">byte[]数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            byte[]转string
+            </summary>
+            <param name="bytes">byte[]数组</param>
+            <param name="encoding">指定编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBase64String(System.Byte[])">
+            <summary>
+            将byte[]转为Base64字符串
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBinString(System.Byte)">
+            <summary>
+            转为二进制字符串
+            </summary>
+            <param name="aByte">字节</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBinString(System.Byte[])">
+            <summary>
+            转为二进制字符串
+            注:一个字节转为8位二进制
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.To0XString(System.Byte[])">
+            <summary>
+            Byte数组转为对应的16进制字符串
+            </summary>
+            <param name="bytes">Byte数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.To0XString(System.Byte)">
+            <summary>
+            Byte数组转为对应的16进制字符串
+            </summary>
+            <param name="aByte">一个Byte</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToASCIIString(System.Byte[])">
+            <summary>
+            转为ASCII字符串（一个字节对应一个字符）
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToASCIIString(System.Byte)">
+            <summary>
+            转为ASCII字符串（一个字节对应一个字符）
+            </summary>
+            <param name="aByte">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetXOR(System.Byte[])">
+            <summary>
+            获取异或值
+            注：每个字节异或
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToInt(System.Byte[])">
+            <summary>
+            将字节数组转为Int类型
+            </summary>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToObject(System.Byte[])">
+            <summary> 
+            将一个序列化后的byte[]数组还原
+            </summary>
+            <param name="bytes"></param>         
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToObject``1(System.Byte[])">
+            <summary>
+            将一个序列化后的byte[]数组还原
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="bytes">字节数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToFile(System.Byte[],System.String)">
+            <summary>
+            将字节数组保存为文件
+            </summary>
+            <param name="bytes">字节数组</param>
+            <param name="path">文件完成路径</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToList``1(System.Data.DataTable)">
+            <summary>
+            DataTable转List
+            </summary>
+            <typeparam name="T">转换类型</typeparam>
+            <param name="dt">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToCsvStr(System.Data.DataTable)">
+             <summary>
+            将DataTable转换为标准的CSV字符串
+             </summary>
+             <param name="dt">数据表</param>
+             <returns>返回标准的CSV</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetWeekOfYear(System.DateTime)">
+            <summary> 
+            获取某一日期是该年中的第几周
+            </summary> 
+            <param name="dateTime">日期</param> 
+            <returns>该日期在该年中的周数</returns> 
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToJsTimestamp(System.DateTime)">
+            <summary>
+            获取Js格式的timestamp
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.JsGetTime(System.DateTime)">
+            <summary>
+            获取js中的getTime()
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Default(System.DateTime)">
+            <summary>
+            返回默认时间1970-01-01
+            </summary>
+            <param name="dateTime">时间日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToCstTime(System.DateTime)">
+            <summary>
+            转为标准时间（北京时间，解决Linux时区问题）
+            </summary>
+            <param name="dt">当前时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToLocalTime(System.DateTime)">
+            <summary>
+            转为本地时间
+            </summary>
+            <param name="dateTime">时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToUnixTimeStamp(System.DateTime)">
+            <summary>
+            转为转换为Unix时间戳格式(精确到秒)
+            </summary>
+            <param name="dateTime">时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetDescription(System.Enum)">
+            <summary>
+            获取枚举描述
+            </summary>
+            <param name="value">枚举值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            以特定的条件运行组合两个Expression表达式
+            </summary>
+            <typeparam name="T">表达式的主实体类型</typeparam>
+            <param name="first">第一个Expression表达式</param>
+            <param name="second">要组合的Expression表达式</param>
+            <param name="merge">组合条件运算方式</param>
+            <returns>组合后的表达式</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            扩展表达式（And）以 Expression.AndAlso 组合两个Expression表达式
+            </summary>
+            <typeparam name="T">表达式的主实体类型</typeparam>
+            <param name="first">当前的Expression表达式</param>
+            <param name="second">组合的Expression表达式</param>
+            <returns>组合后的表达式</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            扩展表达式（Or）以 Expression.OrElse 组合两个Expression表达式
+            </summary>
+            <typeparam name="T">表达式的主实体类型</typeparam>
+            <param name="first">当前的Expression表达式</param>
+            <param name="second">组合的Expression表达式</param>
+            <returns>组合后的表达式</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.AndIF``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            扩展表达式（AndIF）
+            </summary>
+            <typeparam name="T">表达式的主实体类型</typeparam>
+            <param name="first">当前的Expression表达式</param>
+            <param name="need">组合条件</param>
+            <param name="second">组合的Expression表达式</param>
+            <returns>组合后的表达式</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.OrIF``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            扩展表达式（OrIF）
+            </summary>
+            <typeparam name="T">表达式的主实体类型</typeparam>
+            <param name="first">当前的Expression表达式</param>
+            <param name="need">组合条件</param>
+            <param name="second">组合的Expression表达式</param>
+            <returns>组合后的表达式</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            组合继承属性选择表达式树,无拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})">
+            <summary>
+            组合继承属性选择表达式树,1个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})">
+            <summary>
+            组合继承属性选择表达式树,2个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})">
+            <summary>
+            组合继承属性选择表达式树,3个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``6(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5}})">
+            <summary>
+            组合继承属性选择表达式树,4个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``7(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6}})">
+            <summary>
+            组合继承属性选择表达式树,5个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="T5">拓展类型5</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``8(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7}})">
+            <summary>
+            组合继承属性选择表达式树,6个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="T5">拓展类型5</typeparam>
+            <typeparam name="T6">拓展类型6</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``9(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8}})">
+            <summary>
+            组合继承属性选择表达式树,7个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="T5">拓展类型5</typeparam>
+            <typeparam name="T6">拓展类型6</typeparam>
+            <typeparam name="T7">拓展类型7</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``10(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9}})">
+            <summary>
+            组合继承属性选择表达式树,8个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="T5">拓展类型5</typeparam>
+            <typeparam name="T6">拓展类型6</typeparam>
+            <typeparam name="T7">拓展类型7</typeparam>
+            <typeparam name="T8">拓展类型8</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.BuildExtendSelectExpre``11(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,``10}})">
+            <summary>
+            组合继承属性选择表达式树,9个拓展参数
+            TResult将继承TBase的所有属性
+            </summary>
+            <typeparam name="TBase">原数据类型</typeparam>
+            <typeparam name="T1">拓展类型1</typeparam>
+            <typeparam name="T2">拓展类型2</typeparam>
+            <typeparam name="T3">拓展类型3</typeparam>
+            <typeparam name="T4">拓展类型4</typeparam>
+            <typeparam name="T5">拓展类型5</typeparam>
+            <typeparam name="T6">拓展类型6</typeparam>
+            <typeparam name="T7">拓展类型7</typeparam>
+            <typeparam name="T8">拓展类型8</typeparam>
+            <typeparam name="T9">拓展类型9</typeparam>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="expression">拓展表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToNString(System.Guid)">
+            <summary>
+            获取GUID码的字符串（"N"）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.To16String(System.Guid)">
+            <summary>  
+            根据GUID获取16位的唯一字符串  
+            </summary>  
+            <param name="guid"></param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToLongString(System.Guid)">
+            <summary>
+            根据GUID获取19位的唯一数字序列
+            得到GUID码的长整形结构
+            后话：原来BitConverter.ToInt64方法，只取buffer从startIndex开始向后加7个字节的值。
+            也就是说，我们16字节的高8个字节被忽略掉了。GUID理想情况下，要2^128个数据才会出现冲突，
+            而转换后，把字节数减半，也就是2^64数据就会出现冲突。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToSequentialGuid(System.Guid)">
+            <summary>
+            转为有序的GUID
+            注：长度为50字符
+            </summary>
+            <param name="guid">新的GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToPrimaryKey(System.Guid)">
+            <summary>
+            转为主键且有序的GUID（注：长度为50字符）
+            </summary>
+            <param name="guid">新的GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.IsAjaxRequest(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            判断是否为AJAX请求
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetDisplayUrlNoQuery(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取去掉查询参数的Url
+            </summary>
+            <param name="req">请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetToken(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            获取Token
+            </summary>
+            <param name="req">请求</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Copy``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            IEnumerable拓展 - Copy 序列数据复制
+            </summary>
+            <typeparam name="TSource">数据模型</typeparam>
+            <param name="source">数据源</param>
+            <param name="startIndex">原数据开始复制的起始位置</param>
+            <param name="length">需要复制的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Distinct``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            IEnumerable拓展 - Distinct 序列数据去重（使用方式：list = list.DistinctList(c => new { c.Id }).ToList();）
+            </summary>
+            <typeparam name="TSource">数据模型</typeparam>
+            <typeparam name="TKey">去重类型</typeparam>
+            <param name="source">数据源</param>
+            <param name="keySelector">去重字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            IEnumerable拓展 - ForEach
+            </summary>
+            <typeparam name="TSource">数据模型</typeparam>
+            <param name="source">数据源</param>
+            <param name="func">操作方法</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})">
+            <summary>
+            IEnumerable拓展 - ForEach
+            </summary>
+            <typeparam name="TSource">数据模型</typeparam>
+            <param name="source">数据源</param>
+            <param name="func">操作方法</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.CastToList``1(System.Collections.IEnumerable)">
+            <summary>
+            IEnumerable 转 List
+            </summary>
+            <typeparam name="TSource">数据模型</typeparam>
+            <param name="source">数据源</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.CastToDataTable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            IEnumerable 转 DataTable
+            </summary>
+            <typeparam name="TSource">数据模型</typeparam>
+            <param name="source">数据源</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToAscllStr(System.Int32)">
+            <summary>
+            int转Ascll字符
+            </summary>
+            <param name="ascllCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToDateTime_From_JsGetTime(System.Int64)">
+            <summary>
+            jsGetTime转为DateTime
+            </summary>
+            <param name="jsGetTime">js中Date.getTime()</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.#cctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBytes(System.Object)">
+            <summary>
+            将一个object对象序列化，返回一个byte[]         
+            </summary> 
+            <param name="obj">能序列化的对象</param>
+            <returns></returns> 
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.IsNullOrEmpty(System.Object)">
+            <summary>
+            判断是否为Null或者空
+            </summary>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToJson(System.Object)">
+            <summary>
+            将对象序列化成Json字符串
+            </summary>
+            <param name="obj">需要序列化的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.EntityToJson(System.Object)">
+            <summary>
+            实体类转json数据，速度快
+            </summary>
+            <param name="t">实体类</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.DeepClone``1(``0)">
+            <summary>
+            深复制
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToXmlStr``1(``0)">
+            <summary>
+            将对象序列化为XML字符串
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToXmlStr``1(``0,System.String)">
+            <summary>
+            将对象序列化为XML字符串
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象</param>
+            <param name="rootNodeName">根节点名(建议设为xml)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ContainsProperty(System.Object,System.String)">
+            <summary>
+            是否拥有某属性
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            获取某属性值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.SetPropertyValue(System.Object,System.String,System.Object)">
+            <summary>
+            设置某属性值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ContainsField(System.Object,System.String)">
+            <summary>
+            是否拥有某字段
+            </summary>
+            <param name="obj">对象</param>
+            <param name="fieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetGetFieldValue(System.Object,System.String)">
+            <summary>
+            获取某字段值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="fieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.SetFieldValue(System.Object,System.String,System.Object)">
+            <summary>
+            设置某字段值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="fieldName">字段名</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetMethod(System.Object,System.String)">
+            <summary>
+            获取某字段值
+            </summary>
+            <param name="obj">对象</param>
+            <param name="methodName">方法名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ChangeType(System.Object,System.Type)">
+            <summary>
+            改变实体类型
+            </summary>
+            <param name="obj">对象</param>
+            <param name="targetType">目标类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ChangeType``1(System.Object)">
+            <summary>
+            改变实体类型
+            </summary>
+            <typeparam name="T">目标泛型</typeparam>
+            <param name="obj">对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ChangeType_ByConvert(System.Object,System.Type)">
+            <summary>
+            改变类型
+            </summary>
+            <param name="obj">原对象</param>
+            <param name="targetType">目标类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ReadToStringAsync(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            将流读为字符串
+            注：默认使用UTF-8编码
+            </summary>
+            <param name="stream">流</param>
+            <param name="encoding">指定编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBool(System.String)">
+            <summary>
+            转为bool
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBytes_FromBase64Str(System.String)">
+            <summary>
+            转为字节数组
+            </summary>
+            <param name="base64Str">base64字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToMD5String(System.String)">
+            <summary>
+            转换为MD5加密后的字符串（默认加密为32位）
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToMD5String16(System.String)">
+            <summary>
+            转换为MD5加密后的字符串（16位）
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Base64Encode(System.String)">
+            <summary>
+            Base64加密
+            注:默认采用UTF8编码
+            </summary>
+            <param name="source">待加密的明文</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Base64Encode(System.String,System.Text.Encoding)">
+            <summary>
+            Base64加密
+            </summary>
+            <param name="source">待加密的明文</param>
+            <param name="encoding">加密采用的编码方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Base64Decode(System.String)">
+            <summary>
+            Base64解密
+            注:默认使用UTF8编码
+            </summary>
+            <param name="result">待解密的密文</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Base64Decode(System.String,System.Text.Encoding)">
+            <summary>
+            Base64解密
+            </summary>
+            <param name="result">待解密的密文</param>
+            <param name="encoding">解密采用的编码方式，注意和加密时采用的方式一致</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Base64UrlEncode(System.String)">
+            <summary>
+            Base64Url编码
+            </summary>
+            <param name="text">待编码的文本字符串</param>
+            <returns>编码的文本字符串</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.Base64UrlDecode(System.String)">
+            <summary>
+            Base64Url解码
+            </summary>
+            <param name="base64UrlStr">使用Base64Url编码后的字符串</param>
+            <returns>解码后的内容</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToSHA1Bytes(System.String)">
+            <summary>
+            计算SHA1摘要
+            注：默认使用UTF8编码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToSHA1Bytes(System.String,System.Text.Encoding)">
+            <summary>
+            计算SHA1摘要
+            </summary>
+            <param name="str">字符串</param>
+            <param name="encoding">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToSHA1String(System.String)">
+            <summary>
+            转为SHA1哈希加密字符串
+            注：默认使用UTF8编码
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToSHA1String(System.String,System.Text.Encoding)">
+            <summary>
+            转为SHA1哈希
+            </summary>
+            <param name="str">字符串</param>
+            <param name="encoding">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToSHA256String(System.String)">
+            <summary>
+            SHA256加密
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToHMACSHA256String(System.String,System.String)">
+            <summary>
+            HMACSHA256算法
+            </summary>
+            <param name="text">内容</param>
+            <param name="secret">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToInt(System.String)">
+            <summary>
+            string转int
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToLong(System.String)">
+            <summary>
+            string转long
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToInt_FromBinString(System.String)">
+            <summary>
+            二进制字符串转为Int
+            </summary>
+            <param name="str">二进制字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToInt0X(System.String)">
+            <summary>
+            将16进制字符串转为Int
+            </summary>
+            <param name="str">数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToDouble(System.String)">
+            <summary>
+            转换为double
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBytes(System.String)">
+            <summary>
+            string转byte[]
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            string转byte[]
+            </summary>
+            <param name="str">字符串</param>
+            <param name="theEncoding">需要的编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.To0XBytes(System.String)">
+            <summary>
+            将16进制字符串转为Byte数组
+            </summary>
+            <param name="str">16进制字符串(2个16进制字符表示一个Byte)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToASCIIBytes(System.String)">
+            <summary>
+            将ASCII码形式的字符串转为对应字节数组
+            注：一个字节一个ASCII码字符
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToDateTime(System.String)">
+            <summary>
+            转换为日期格式
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToObject``1(System.String)">
+            <summary>
+            将Json字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.RemoveAt(System.String)">
+            <summary>
+            删除Json字符串中键中的@符号
+            </summary>
+            <param name="jsonStr">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToObject(System.String,System.Type)">
+            <summary>
+            将Json字符串反序列化为对象
+            </summary>
+            <param name="jsonStr">json字符串</param>
+            <param name="type">对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.XmlStrToObject``1(System.String)">
+            <summary>
+            将XML字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="xmlStr">XML字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.XmlStrToJObject(System.String)">
+            <summary>
+            将XML字符串反序列化为对象
+            </summary>
+            <param name="xmlStr">XML字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToList``1(System.String)">
+            <summary>
+            将Json字符串转为List'T'
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToDataTable(System.String)">
+            <summary>
+            将Json字符串转为DataTable
+            </summary>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToJObject(System.String)">
+            <summary>
+            将Json字符串转为JObject
+            </summary>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToJArray(System.String)">
+            <summary>
+            将Json字符串转为JArray
+            </summary>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToEntity``1(System.String)">
+            <summary>
+            json数据转实体类,仅仅应用于单个实体类，速度非常快
+            </summary>
+            <typeparam name="T">泛型参数</typeparam>
+            <param name="json">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToFirstUpperStr(System.String)">
+            <summary>
+            转为首字母大写
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToFirstLowerStr(System.String)">
+            <summary>
+            转为首字母小写
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToIPEndPoint(System.String)">
+            <summary>
+            转为网络终结点IPEndPoint
+            </summary>=
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToEnum``1(System.String)">
+            <summary>
+            将枚举类型的文本转为枚举类型
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="enumText">枚举文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.IsWeakPassword(System.String)">
+            <summary>
+            是否为弱密码
+            注:密码必须包含数字、小写字母、大写字母和其他符号中的两种并且长度大于8
+            </summary>
+            <param name="pwd">密码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.ParameterRebinder">
+            <summary>
+            继承ExpressionVisitor类，实现参数替换统一
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.BaseActionFilterAsync">
+            <summary>
+            过滤器基类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            在执行操作Action方法前执行调用
+            </summary>
+            <param name="context">过滤器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            在执行操作Action方法后执行调用
+            </summary>
+            <param name="context">过滤器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+            <summary>
+            模型绑定完成后，在操作之前异步调用
+            </summary>
+            <param name="context">过滤器上下文</param>
+            <param name="next">下一个动作过滤器或动作本身</param>
+            <returns>一个System.Threading.Tasks.Task，完成时指示过滤器已执行</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.JsonContent(System.String)">
+            <summary>
+            返回JSON
+            </summary>
+            <param name="json">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.Success">
+            <summary>
+            返回成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.Success(System.String)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="message">消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.Success``1(``0)">
+            <summary>
+            返回成功
+            </summary>
+            <param name="data">返回的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.Error">
+            <summary>
+            返回错误
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.Error(System.String)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="message">错误提示</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.BaseActionFilterAsync.Error(System.String,System.Int32)">
+            <summary>
+            返回错误
+            </summary>
+            <param name="message">错误提示</param>
+            <param name="errorCode">错误代码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.SqlSugarTransactionAttribute">
+            <summary>
+            SqlSugar数据库事务操作特性
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.GlobalExceptionFilter">
+            <summary>
+            全局异常捕获器
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.GlobalExceptionFilter.OnExceptionAsync(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            发生异常时的处理
+            </summary>
+            <param name="context">上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.ResponseFormatAttribute">
+            <summary>
+            响应结果格式化特性
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.ResponseFormatAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            重写 - 在执行操作Action方法后执行调用 - 响应结果格式化
+            </summary>
+            <param name="context">过滤器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.ResponseNonFormatAttribute">
+            <summary>
+            响应结果非格式化特性
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.ResponseNonFormatAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            重写 - 在执行操作Action方法前执行调用
+            </summary>
+            <param name="context">过滤器上下文</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.ResponseNonFormatAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            重写 - 在执行操作Action方法后执行调用
+            </summary>
+            <param name="context">过滤器上下文</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.OperationLogAttribute">
+            <summary>
+            用户操作日志特性
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Filter.OperationLogAttribute.LogType">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Filter.OperationLogAttribute.LogContent">
+            <summary>
+            日志内容
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.OperationLogType">
+            <summary>
+            系统日志类型
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Filter.OperationLogType.新增">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Filter.OperationLogType.编辑">
+            <summary>
+            编辑
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Filter.OperationLogType.删除">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Filter.OperationLogType.查询">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Filter.OperationLogType.授权登录">
+            <summary>
+            授权登录
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.ValidationFilterAttribute">
+            <summary>
+            数据校验特性
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Filter.ValidationFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            重写 - 在执行操作Action方法前执行调用 - 数据校验
+            </summary>
+            <param name="context">过滤器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Filter.CachingAttribute">
+            <summary>
+            缓存数据操作特性
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Filter.CachingAttribute.AbsoluteExpiration">
+            <summary>
+            缓存绝对过期时间（分钟）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Filter.CachingAttribute.CustomKey">
+            <summary>
+            自定义缓存key值
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.GlobalData">
+            <summary>
+            全局数据
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.FXASSEMBLY_PATTERN">
+            <summary>
+            解决方案程序集匹配名
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.AllFxAssemblies">
+            <summary>
+            解决方案所有程序集
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.AllFxTypes">
+            <summary>
+            解决方案所有自定义类
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.ADMINID">
+            <summary>
+            超级管理员UserIId
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.AUTH_ADMIN">
+            <summary>
+            超级管理员 AUTH_ADMINISTRATOR
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.AUTH_MANAGER">
+            <summary>
+            管理员 MANAGER
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.AUTH_CLIENT">
+            <summary>
+            客户端 CLIENT
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.GlobalData.Authority_Policy_Name">
+            <summary>
+            权限策略名称
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Http.HttpContextService">
+            <summary>
+            HttpContext相关服务注入扩展
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.HttpContextService.AddHttpContextService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            HttpContext相关服务注入
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Hugo.Core.Common.Http.HttpContextUser">
+            <summary>
+            HttpContext用户信息服务实现
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Http.HttpContextUser.ClientIP">
+            <summary>
+            客户端IP地址
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Http.HttpContextUser.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Http.HttpContextUser.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.HttpContextUser.GetToken">
+            <summary>
+            获取Tonken字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.HttpContextUser.IsAuthenticated">
+            <summary>
+            是否已通过身份验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.HttpContextUser.GetUserInfoFromToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="claimType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Http.IHttpContextUser">
+            <summary>
+            HttpContext用户信息服务接口
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Http.IHttpContextUser.ClientIP">
+            <summary>
+            客户端IP地址
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Http.IHttpContextUser.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Http.IHttpContextUser.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.IHttpContextUser.GetToken">
+            <summary>
+            获取Tonken字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.IHttpContextUser.IsAuthenticated">
+            <summary>
+            是否已通过身份验证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.IHttpContextUser.GetUserInfoFromToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="claimType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.IHttpContextUser.GetClaimsIdentity">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Http.IHttpContextUser.GetClaimValueByType(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="claimType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.IPRateLimit.IPRateLimitMiddleware">
+            <summary>
+            IP限流服务中间件（重写，app.UseIpRateLimiting()）
+            <para>通常在项目中，Authorization授权是少不了了，加入限流后，在被限流的接口调用后，限流拦截器使得跨域策略失效，故重写拦截器中间件，继承IpRateLimitMiddleware</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.IPRateLimit.IPRateLimitMiddlewareExtension">
+            <summary>
+            IP限流服务中间件扩展类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.IPRateLimit.IPRateLimitMiddlewareExtension.UseIPRateLimitMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            启用IP限流服务中间件
+            </summary>
+            <param name="app">应用构造器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.IPRateLimit.IPRateLimitService">
+            <summary>
+            IP限流服务注入扩展
+            <para>NuGet：Install-Package AspNetCoreRateLimit</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.IPRateLimit.IPRateLimitService.AddIPRateLimitService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            IP限流服务注入
+            </summary>
+            <param name="services">服务容器</param>
+            <param name="configuration">配置信息</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Logger.ILog4Logger">
+            <summary>
+            日志帮助
+            <para>NuGet：Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Debug(System.Object)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Debug(System.Object,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Info(System.Object)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Info(System.Object,System.Exception)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Warn(System.Object)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Warn(System.Object,System.Exception)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Error(System.Object)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Error(System.Object,System.Exception)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Fatal(System.Object)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.ILog4Logger.Fatal(System.Object,System.Exception)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Logger.Log4Logger">
+            <summary>
+            日志帮助类
+            <para>NuGet：Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.GetLogger(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            获取日志记录器
+            </summary>
+            <param name="logLevel">日志级别</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Debug(System.Object)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Debug(System.Object,System.Exception)">
+            <summary>
+            调试信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Info(System.Object)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Info(System.Object,System.Exception)">
+            <summary>
+            关键信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Warn(System.Object)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Warn(System.Object,System.Exception)">
+            <summary>
+            警告信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Error(System.Object)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Error(System.Object,System.Exception)">
+            <summary>
+            错误信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">exception</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Fatal(System.Object)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="message">message</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Logger.Log4Logger.Fatal(System.Object,System.Exception)">
+            <summary>
+            失败信息
+            </summary>
+            <param name="message">message</param>
+            <param name="exception">ex</param>
+        </member>
+        <member name="T:Hugo.Core.Common.MessageQueue.RedisMQService">
+            <summary>
+            Redis消息队列中间件服务注入扩展（消费者）
+            <para>NuGet：Install-Package InitQ</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.MessageQueue.RedisMQService.AddRedisMQService(Microsoft.Extensions.DependencyInjection.IServiceCollection,InitQ.Abstractions.IRedisSubscribe)">
+            <summary>
+            Redis消息队列中间件服务注入（消费者）
+            </summary>
+            <param name="services">服务容器</param>
+            <param name="redisSubscribe">列表订阅</param>
+        </member>
+        <member name="T:Hugo.Core.Common.MessageQueue.RedisMQKey">
+            <summary>
+            Redis队列Key
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Middleware.IPLogMiddleware">
+            <summary>
+            IP请求数据记录中间件
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Middleware.IPLogMiddlewareExtension">
+            <summary>
+            请求响应记录中间件扩展类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Middleware.IPLogMiddlewareExtension.UseIPLogMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            启用请求响应记录中间件
+            </summary>
+            <param name="app">应用构造器</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Middleware.ReuestResponseLogMiddleware">
+            <summary>
+            请求响应记录中间件
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Middleware.ReuestResponseLogMiddleware.RequestDataLog(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            请求信息记录
+            </summary>
+            <param name="context">Http上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Middleware.ReuestResponseLogMiddleware.ResponseDataLog(Microsoft.AspNetCore.Http.HttpResponse,System.IO.MemoryStream)">
+            <summary>
+            响应信息记录
+            </summary>
+            <param name="response">Http响应</param>
+            <param name="ms"></param>
+        </member>
+        <member name="T:Hugo.Core.Common.Middleware.ReuestResponseMiddlewareExtension">
+            <summary>
+            请求响应记录中间件扩展类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Middleware.ReuestResponseMiddlewareExtension.UseReuestResponseMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            启用请求响应记录中间件
+            </summary>
+            <param name="app">应用构造器</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.MiniProfilerTool.MiniProfilerService">
+            <summary>
+            性能分析器服务注入扩展
+            <para>NuGet：Install-Package MiniProfiler.AspNetCore.Mvc</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.MiniProfilerTool.MiniProfilerService.AddMiniProfilerService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            性能分析器服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.DbFactory">
+            <summary>
+            上下文工厂（生产SqlSugarClient实例）
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.DbFactory.GetDbClient">
+            <summary>
+            获取 SqlSugarClient 实例，保证实例的唯一性
+            </summary>
+            <returns>SqlSugarClient实例</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.DbFactory.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.DbFactory.CommitTran">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.DbFactory.RollbackTran">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.IDbFactory">
+            <summary>
+            上下文工厂（生产SqlSugarClient实例）
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.IDbFactory.GetDbClient">
+            <summary>
+            获取 SqlSugarClient 实例
+            </summary>
+            <returns>SqlSugarClient实例</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.IDbFactory.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.IDbFactory.CommitTran">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.IDbFactory.RollbackTran">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.IRepository">
+            <summary>
+            仓储接口基类
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.ISqlSugarFactory">
+            <summary>
+            SqlSugar上下文工厂（生产 SqlSugarClient 实例）
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.ISqlSugarFactory.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.ISqlSugarFactory.CommitTran">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.ISqlSugarFactory.RollbackTran">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.Repository`1">
+            <summary>
+            业务逻辑层使用（Service）
+            </summary>
+            <typeparam name="TIRepository">仓储数据操作接口</typeparam>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.Repository">
+            <summary>
+            仓储数据操作层使用（Repository）
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.SqlSugarFactory">
+            <summary>
+            SqlSugar上下文工厂（生产 SqlSugarClient 实例）
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.SqlSugarFactory.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.SqlSugarFactory.CommitTran">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.SqlSugarFactory.RollbackTran">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.SqlSugarRedisCache">
+            <summary>
+            SqlSugar数据信息缓存服务
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ORM.SqlSugarService">
+            <summary>
+            SqlSugar服务注入扩展
+            <para>NuGet：Install-Package SqlSugarCore</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.ORM.SqlSugarService.AddSqlSugarClient(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            SqlSugar服务注入
+            </summary>
+            <param name="services">服务容器</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.SignalR.ChatHub">
+            <summary>
+            SignalR集线器（继承 SignalR集线器的基类）
+            <para>用于在网络上提供实时双向通信的组件</para>
+            <para>NuGet：Install-Package Microsoft.AspNetCore.SignalR</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.OnConnectedAsync">
+            <summary>
+            与集线器建立新连接时运行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.OnDisconnectedAsync(System.Exception)">
+            <summary>
+            与集线器断开连接时运行
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.AddToGroupAsync(System.String)">
+            <summary>
+            将连接添加到指定的组
+            </summary>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.RemoveFromGroupAsync(System.String)">
+            <summary>
+            从指定的组中删除连接
+            </summary>
+            <param name="groupName">组名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.SendMessageToGroupAsync(System.String,System.String)">
+            <summary>
+            向指定群组发送信息
+            </summary>
+            <param name="groupName">组名</param>
+            <param name="message">信息内容</param>  
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.SendMessageToUserAsync(System.String,System.String)">
+            <summary>
+            向指定用户发送信息
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="message">信息内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.SendMessage(System.String,System.String)">
+            <summary>
+            向指定用户发送信息
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="message">信息内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.ChatHub.GetLatestCount(System.String)">
+            <summary>
+            获取最新计数
+            <para>定于一个通讯管道，用来管理我们和客户端的连接</para>
+            1、客户端调用 GetLatestCount，就像订阅
+            </summary>
+            <param name="random">随机字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.SignalR.IChatClient">
+            <summary>
+            SignalR客户端调用
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.IChatClient.ReceiveMessage(System.Object)">
+            <summary>
+            SignalR客户端方法 - 接收信息
+            </summary>
+            <param name="message">信息内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.IChatClient.ReceiveMessage(System.String,System.String)">
+            <summary>
+            SignalR客户端方法 - 接收信息
+            </summary>
+            <param name="userId">接收用户ID</param>
+            <param name="message">信息内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.IChatClient.ReceiveUpdate(System.Object)">
+            <summary>
+            SignalR客户端方法 - 接收更新
+            </summary>
+            <param name="message">信息内容</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.SignalR.SignalRService">
+            <summary>
+            SignalR实时推送服务注入扩展
+            <para>用于在网络上提供实时双向通信的组件</para>
+            <para>NuGet：Install-Package Microsoft.AspNetCore.SignalR</para>
+            <para>NuGet：Install-Package Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.SignalR.SignalRService.AddSignalRService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            SignalR实时推送服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Swagger.CustomApiVersion">
+            <summary>
+            自定义Api接口版本
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Swagger.CustomApiVersion.ApiVersion">
+            <summary>
+            Api接口版本
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Swagger.CustomApiVersion.ApiVersion.v1">
+            <summary>
+            v1 版本
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Swagger.CustomApiVersion.ApiVersion.v2">
+            <summary>
+            v2 版本
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Swagger.CustomParameterFilter">
+            <summary>
+            自定义请求参数过滤器
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Swagger.CustomParameterFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            SwaggerAPI文档自定义请求参数过滤器应用
+            </summary>
+            <param name="operation">操作对象</param>
+            <param name="context">操作过滤器上下文</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Swagger.SwaggerMiddleware">
+            <summary>
+            Swagger - API文档中间件
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Swagger.SwaggerMiddleware.UseSwaggerMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Func{System.IO.Stream})">
+            <summary>
+            启用Swagger - API文档中间件
+            </summary>
+            <param name="app">应用构造器</param>
+            <param name="funcStream">用于检索swagger-ui页面的Stream函数</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Swagger.SwaggerService">
+            <summary>
+            Swagger服务注入扩展
+            <para>NuGet：Install-Package Swashbuckle.AspNetCore</para>
+            <para>NuGet：Install-Package Swashbuckle.AspNetCore.Filters</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Swagger.SwaggerService.AddSwaggerService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Swagger服务注入
+            </summary>
+            <param name="services">服务容器</param>
+        </member>
+        <member name="T:Hugo.Core.Common.AppSettings">
+            <summary>
+            appsettings.json 读取类
+            <para>NuGet：Install-Package Microsoft.Extensions.Configuration</para>
+            <para>NuGet：Install-Package Microsoft.Extensions.Configuration.Json</para>
+            <para>NuGet：Install-Package Microsoft.Extensions.Configuration.Binder</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.AppSettings.GetSetting(System.String[])">
+            <summary>
+            封装要操作的字符
+            </summary>
+            <param name="sections">节点配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AppSettings.GetSetting``1(System.String[])">
+            <summary>
+            递归获取配置信息数组
+            </summary>
+            <typeparam name="T">泛型对象</typeparam>
+            <param name="sections">节点配置</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.AppSettings.GetConnectionString(System.String)">
+            <summary>
+            获取连接字符串
+            </summary>
+            <param name="nameOfCon">连接字符串名</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Async">
+            <summary>
+            异步转同步,防止ASP.NET中死锁
+            https://cpratt.co/async-tips-tricks/
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Async.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            同步执行
+            </summary>
+            <param name="func">任务</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Async.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            同步执行
+            </summary>
+            <typeparam name="TResult">返回类型</typeparam>
+            <param name="func">任务</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Delegate">
+            <summary>
+            委托帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Delegate.RunAsync(System.Action,System.Action)">
+            <summary>
+            异步执行方法
+            </summary>
+            <param name="firstFunc">首先执行的方法</param>
+            <param name="next">接下来执行的方法</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Delegate.RunAsync(System.Func{System.Object},System.Action{System.Object})">
+            <summary>
+            异步执行方法
+            </summary>
+            <param name="firstFunc">首先执行的方法</param>
+            <param name="next">接下来执行的方法</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Encoding">
+            <summary>
+            编码帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.GB2312Probability(System.SByte[])">
+            <summary>
+            判断是GB2312编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.GBKProbability(System.SByte[])">
+            <summary>
+            判断是GBK编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.HZProbability(System.SByte[])">
+            <summary>
+            判断是HZ编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.BIG5Probability(System.SByte[])">
+            <summary>
+            判断是BIG5编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.ENCTWProbability(System.SByte[])">
+            <summary>
+            判断是CNS11643(台湾)编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.ISO2022CNProbability(System.SByte[])">
+            <summary>
+            判断是ISO2022CN编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.UTF8Probability(System.SByte[])">
+            <summary>
+            判断是UTF8编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.UnicodeProbability(System.SByte[])">
+            <summary>
+            判断是Unicode编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.ASCIIProbability(System.SByte[])">
+            <summary>
+            判断是ASCII编码的可能性
+            </summary>
+            <param name="rawtext">要判断的 <see cref="T:System.SByte"/> 字节数组</param>
+            <returns>返回 0 至 100 之间的可能性</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.FileLength(System.IO.FileInfo)">
+            <summary>
+            检测当前文件的大小
+            </summary>
+            <param name="file">被检测的文件</param>
+            <returns>当前文件的大小。</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.Identity(System.Int64)">
+            <summary>
+            This method returns the literal value received
+            </summary>
+            <param name="literal">The literal to return</param>
+            <returns>The received value</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Encoding.GetEncodingString(System.IO.FileInfo)">
+            <summary>
+            获取文件编码信息
+            </summary>
+            <param name="file">文件</param>
+            <returns>编码字符串</returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Enum">
+            <summary>
+            枚举帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Enum.ToOptionList(System.Type)">
+            <summary>
+            将枚举类型转为选项列表
+            注：value为值,text为显示内容
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Enum.ToDescriptionList(System.Type)">
+            <summary>
+            将枚举类型转为选项列表
+            注：value为值,text为显示内容
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Enum.ToMultipleText(System.Collections.Generic.List{System.Int32},System.Type)">
+            <summary>
+            多选枚举转为对应文本,逗号隔开
+            </summary>
+            <param name="values">多个值</param>
+            <param name="enumType">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Enum.ToMultipleText(System.String,System.Type)">
+            <summary>
+            多选枚举转为对应文本,逗号隔开
+            </summary>
+            <param name="values">多个值逗号隔开</param>
+            <param name="enumType">枚举类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_File">
+            <summary>
+            文件操作帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.Exists(System.String)">
+            <summary>
+            判断文件是否存在
+            </summary>
+            <param name="path">文件目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.GetCurrentDir">
+            <summary>
+            获取当前程序根目录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.WriteTxt(System.String,System.String)">
+            <summary>
+            输出字符串到文件
+            注：使用系统默认编码;若文件不存在则创建新的,若存在则覆盖
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.WriteTxt(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            输出字符串到文件
+            注：使用自定义编码;若文件不存在则创建新的,若存在则覆盖
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.WriteTxt(System.String,System.String,System.IO.FileMode)">
+            <summary>
+            输出字符串到文件
+            注：使用自定义模式,使用UTF-8编码
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="fileModel">输出方法</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.WriteTxt(System.String,System.String,System.Text.Encoding,System.IO.FileMode)">
+            <summary>
+            输出字符串到文件
+            注：使用自定义编码以及写入模式
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="encoding">字符编码</param>
+            <param name="fileModel">写入模式</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.WriteTxt(System.String,System.String,System.Text.Encoding,System.Nullable{System.IO.FileMode})">
+            <summary>
+            输出字符串到文件
+            注：使用自定义编码以及写入模式
+            </summary>
+            <param name="content">内容</param>
+            <param name="path">文件路径</param>
+            <param name="encoding">字符编码</param>
+            <param name="fileModel">写入模式</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_File.WriteLog(System.String,System.String)">
+            <summary>
+            输出日志到指定文件
+            </summary>
+            <param name="msg">日志消息</param>
+            <param name="path">日志文件位置（默认为D:\测试\a.log）</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_FileZip">
+            <summary>
+            文件压缩帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_FileZip.ZipFile(Hugo.Core.Common.FileEntry)">
+            <summary>
+            压缩一个文件
+            </summary>
+            <param name="file">文件信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_FileZip.ZipFile(System.Collections.Generic.List{Hugo.Core.Common.FileEntry})">
+            <summary>
+            压缩多个文件
+            </summary>
+            <param name="files">文件信息列表</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.FileEntry">
+            <summary>
+            文件信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.FileEntry.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.FileEntry.FileBytes">
+            <summary>
+            文件字节
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_HttpRequest">
+            <summary>
+            Http请求操作帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.#cctor">
+            <summary>
+            静态构造函数
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Helper_HttpRequest.HandleLog">
+            <summary>
+            记录日志
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.GetData(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.String},System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            发起GET请求
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="url">地址</param>
+            <param name="paramters">参数</param>
+            <param name="headers">请求头</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.PostData(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.String},Hugo.Core.Common.ContentType,System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            发起POST请求
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="url">地址</param>
+            <param name="paramters">参数</param>
+            <param name="headers">请求头</param>
+            <param name="contentType">请求的ContentType</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.PostData(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            发起POST请求
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">请求体</param>
+            <param name="contentType">请求的ContentType</param>
+            <param name="headers">请求头</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.RequestData(Hugo.Core.Common.HttpMethod,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.String},Hugo.Core.Common.ContentType,System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            请求数据
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="url">URL地址</param>
+            <param name="paramters">参数</param>
+            <param name="headers">请求头信息</param>
+            <param name="contentType">请求数据类型</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.RequestData(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            请求数据
+            注：若使用证书,推荐使用X509Certificate2的pkcs12证书
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="url">请求地址</param>
+            <param name="body">请求的body内容</param>
+            <param name="contentType">请求数据类型</param>
+            <param name="headers">请求头</param>
+            <param name="cerFile">证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.GetAllRequestParamsAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            获取所有请求的参数（包括get参数和post参数）
+            </summary>
+            <param name="context">请求上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.BuildGetFullUrl(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            构建完全Url
+            </summary>
+            <param name="url">Url</param>
+            <param name="parameters">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.GetHtml(System.String)">
+            <summary>
+            从URL获取html文档
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.SafeSignRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            发起安全签名请求
+            注：使用本框架签名算法,ContentType为application/json
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">请求body</param>
+            <param name="appId">应用Id</param>
+            <param name="appSecret">应用密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_HttpRequest.BuildApiSign(System.String,System.String,System.String,System.DateTime,System.String)">
+            <summary>
+            生成接口签名sign
+            注：md5(appId+time+guid+body+appSecret)
+            </summary>
+            <param name="appId">应用Id</param>
+            <param name="appSecret">应用密钥</param>
+            <param name="guid">唯一GUID</param>
+            <param name="time">时间</param>
+            <param name="body">请求体</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.HttpMethod">
+            <summary>
+            Http请求方法定义
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.ContentType">
+            <summary>
+            Http请求内容定义
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.ContentType.Form">
+            <summary>
+            传统Form表单,即application/x-www-form-urlencoded
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.ContentType.Json">
+            <summary>
+            使用Json,即application/json
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_ID">
+            <summary>
+            ID生成帮助类
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.Helper_ID.WorkerId">
+            <summary>
+            当前WorkerId,范围:1~1023
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ID.GetId">
+            <summary>
+            获取String型雪花Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ID.GetLongId">
+            <summary>
+            获取long型雪花Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ID.GetStructId">
+            <summary>
+            获取雪花Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.IdWorker">
+            <summary>
+            https://github.com/ccollie/snowflake-net
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.IdHelperBootstrapper">
+            <summary>
+            配置引导
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.IdHelperBootstrapper._worderId">
+            <summary>
+            机器Id
+            </summary>
+            <value>
+            机器Id
+            </value>
+        </member>
+        <member name="M:Hugo.Core.Common.IdHelperBootstrapper.GetWorkerId">
+            <summary>
+            获取机器Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.IdHelperBootstrapper.Available">
+            <summary>
+            是否可用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.IdHelperBootstrapper.SetWorkderId(System.Int64)">
+            <summary>
+            设置机器Id
+            </summary>
+            <param name="workderId">机器Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.IdHelperBootstrapper.Boot">
+            <summary>
+            完成配置
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.SnowflakeId">
+            <summary>
+            雪花Id,全局唯一,性能高,取代GUID
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.SnowflakeId.#ctor(System.Int64)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="id">long形式ID</param>
+        </member>
+        <member name="P:Hugo.Core.Common.SnowflakeId.Id">
+            <summary>
+            获取long形式Id
+            </summary>
+            <value>
+            long形式Id
+            </value>
+        </member>
+        <member name="P:Hugo.Core.Common.SnowflakeId.Time">
+            <summary>
+            Id时间
+            </summary>
+            <value>
+            Id时间
+            </value>
+        </member>
+        <member name="M:Hugo.Core.Common.SnowflakeId.ToString">
+            <summary>
+            转为string形式Id
+            </summary>
+            <returns>
+            string形式Id
+            </returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Image">
+            <summary>
+            图片操作帮助类
+            <para>NuGet：Install-Package System.Drawing.Common</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.GetImgFromFile(System.String)">
+            <summary>
+            从文件获取图片
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.GetImgFromBase64(System.String)">
+            <summary>
+            从base64字符串读入图片
+            </summary>
+            <param name="base64">base64字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.GetImgFromBase64Url(System.String)">
+            <summary>
+            从URL格式的Base64图片获取真正的图片
+            即去掉data:image/jpg;base64,这样的格式
+            </summary>
+            <param name="base64Url">图片Base64的URL形式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.CompressImg(System.Drawing.Image,System.Int32)">
+            <summary>
+            压缩图片
+            注:等比压缩
+            </summary>
+            <param name="img">原图片</param>
+            <param name="width">压缩后宽度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.CompressImg(System.Drawing.Image,System.Int32,System.Int32)">
+            <summary>
+            压缩图片
+            </summary>
+            <param name="img">原图片</param>
+            <param name="width">压缩后宽度</param>
+            <param name="height">压缩后高度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.ToBase64String(System.Drawing.Image)">
+            <summary>
+            将图片转为base64字符串
+            默认使用jpg格式
+            </summary>
+            <param name="img">图片对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.ToBase64String(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            将图片转为base64字符串
+            使用指定格式
+            </summary>
+            <param name="img">图片对象</param>
+            <param name="imageFormat">指定格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.ToBase64StringUrl(System.Drawing.Image)">
+            <summary>
+            将图片转为base64字符串
+            默认使用jpg格式,并添加data:image/jpg;base64,前缀
+            </summary>
+            <param name="img">图片对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.ToBase64StringUrl(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            将图片转为base64字符串
+            使用指定格式,并添加data:image/jpg;base64,前缀
+            </summary>
+            <param name="img">图片对象</param>
+            <param name="imageFormat">指定格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Image.GetBase64String(System.String)">
+            <summary>
+            获取真正的图片base64数据
+            即去掉data:image/jpg;base64,这样的格式
+            </summary>
+            <param name="base64UrlStr">带前缀的base64图片字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ImageVerifyCode.BuildVerifyCode(System.Int32)">
+            <summary>
+            生成图片验证码
+            </summary>
+            <param name="length">验证码字符数</param>
+            <returns>图片byte[]和code</returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory">
+            <summary>
+            生成图片验证码工厂
+            <para>NuGet：Install-Package System.Drawing.Common</para>
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory.character">
+            <summary>  
+            验证码的字符集，去掉了一些容易混淆的字符  
+            </summary>  
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory.CreateValidateCode(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="codeType">验证码类型(0-字母数字混合,1-数字,2-字母)</param>
+            <param name="codeCount">验证码字符个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory.CreateValidateCode(System.Int32)">
+            <summary>     
+            生成验证码     
+            </summary>     
+            <param name="length">指定验证码的长度</param>     
+            <returns></returns>     
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory.CreateValidateGraphic(System.String,System.Single,System.Int32)">
+            <summary>     
+            创建验证码的图片     
+            </summary>        
+            <param name="validateCode">验证码</param>  
+            <param name="fontsize"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory.GetImageWidth(System.Int32)">
+            <summary>     
+            得到验证码图片的长度     
+            </summary>     
+            <param name="validateNumLength">验证码的长度</param>     
+            <returns></returns>     
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_ImageVerifyCode.VerifyCodeFactory.GetImageHeight">
+            <summary>     
+            得到验证码的高度     
+            </summary>     
+            <returns></returns>     
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_IP">
+            <summary>
+            Ip地址帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_IP.GetLocalIp">
+            <summary>
+            获取本地IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_IP.GetFirstAvailablePort">
+            <summary>
+            获取第一个可用的端口号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_IP.PortIsAvailable(System.Int32)">
+            <summary>
+            检查指定端口是否已用
+            </summary>
+            <param name="port"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_IP.PortIsUsed">
+            <summary>
+            获取操作系统已用的端口号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Job">
+            <summary>
+            任务帮助类
+            <para>NuGet：Install-Package Quartz</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Job.SetIntervalJob(System.Action,System.TimeSpan)">
+            <summary>
+            设置一个时间间隔的循环操作
+            </summary>
+            <param name="action">执行的操作</param>
+            <param name="timeSpan">时间间隔</param>
+            <returns>任务标识Id</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Job.SetDailyJob(System.Action,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置每天定时任务
+            </summary>
+            <param name="action">执行的任务</param>
+            <param name="h">时</param>
+            <param name="m">分</param>
+            <param name="s">秒</param>
+            <returns>任务标识Id</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Job.SetDelayJob(System.Action,System.TimeSpan)">
+            <summary>
+            设置延时任务,仅执行一次
+            </summary>
+            <param name="action">执行的操作</param>
+            <param name="delay">延时时间</param>
+            <returns>任务标识Id</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Job.SetCronJob(System.Action,System.String)">
+            <summary>
+            通过表达式创建任务
+            表达式规则参考:http://www.jsons.cn/quartzcron/
+            </summary>
+            <param name="action">执行的操作</param>
+            <param name="cronExpression">表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Job.RemoveJob(System.String)">
+            <summary>
+            删除任务
+            </summary>
+            <param name="jobId">任务标识Id</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Linq">
+            <summary>
+            Linq操作帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Linq.True``1">
+            <summary>
+            创建初始条件为True的表达式（And）
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Linq.False``1">
+            <summary>
+            创建初始条件为False的表达式（Or）
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Log">
+            <summary>
+            日志帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Log.WriteLog_LocalTxt(System.String)">
+            <summary>
+            写入日志到本地TXT文件
+            注：日志文件名为"A_log.txt",目录为根目录
+            </summary>
+            <param name="log">日志内容</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Loop">
+            <summary>
+            循环帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Loop.Loop(System.Int32,System.Action)">
+            <summary>
+            循环指定次数
+            </summary>
+            <param name="count">循环次数</param>
+            <param name="method">执行的方法</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Loop.Loop(System.Int32,System.Action{System.Int32})">
+            <summary>
+            循环指定次数
+            </summary>
+            <param name="count">循环次数</param>
+            <param name="method">执行的方法</param>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_PrimaryKey">
+            <summary>
+            主键ID帮助类（雪花ID）
+            Twitter_Snowflake
+            SnowFlake的结构如下(每部分用-分开)
+            0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000
+            1位标识，由于long基本类型在Java中是带符号的，最高位是符号位，正数是0，负数是1，所以id一般是正数，最高位是0
+            41位时间截(毫秒级)，注意，41位时间截不是存储当前时间的时间截，而是存储时间截的差值（当前时间截 - 开始时间截)得到的值），
+            41位的时间截，可以使用69年，年T = (1L 《 41) / (1000L * 60 * 60 * 24 * 365) = 69
+            这里的的开始时间截，一般是我们的id生成器开始使用的时间，由我们程序来指定的（如下下面程序IdWorker类的startTime属性）。
+            10位的数据机器位，可以部署在1024个节点，包括5位datacenterId和5位workerId
+            12位序列，毫秒内的计数，12位的计数顺序号支持每个节点每毫秒(同一机器，同一时间截)产生4096个ID序号
+            总共加起来刚好64位，为一个Long型。
+            SnowFlake的优点是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞(由数据中心ID和机器ID作区分)，
+            并且效率较高，经测试，SnowFlake单机每秒都能够产生出极限4,096,000个ID来
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_PrimaryKey.#ctor(System.Int64,System.Int64)">
+            <summary>
+            雪花ID
+            </summary>
+            <param name="datacenterId">数据中心ID</param>
+            <param name="workerId">工作机器ID</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_PrimaryKey.NextId">
+            <summary>
+            获得下一个ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_PrimaryKey.AnalyzeId(System.Int64)">
+            <summary>
+            解析雪花ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_PrimaryKey.GetNextTimestamp(System.Int64)">
+            <summary>
+            阻塞到下一个毫秒，直到获得新的时间戳
+            </summary>
+            <param name="lastTimestamp">上次生成ID的时间截</param>
+            <returns>当前时间戳</returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_PrimaryKey.GetCurrentTimestamp">
+            <summary>
+            获取当前时间戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_QRCode">
+            <summary>
+            二维码生成帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildQRCode(System.String)">
+            <summary>
+            生成二维码，默认边长为250px
+            </summary>
+            <param name="content">二维码内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildQRCode(System.String,System.Int32)">
+            <summary>
+            生成二维码,自定义边长
+            </summary>
+            <param name="content">二维码内容</param>
+            <param name="imgSize">二维码边长px</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildQRCode(System.String,System.Int32,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            生成二维码
+            注：自定义边长以及颜色
+            </summary>
+            <param name="content">二维码内容</param>
+            <param name="imgSize">二维码边长px</param>
+            <param name="background">二维码底色</param>
+            <param name="foreground">二维码前景色</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildQRCode_Logo(System.String,System.Drawing.Bitmap)">
+            <summary>
+            生成二维码并添加Logo
+            注：默认生成边长为250px的二维码
+            </summary>
+            <param name="content">二维码内容</param>
+            <param name="logo">logo图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildQRCode_Logo(System.String,System.Int32,System.Drawing.Bitmap)">
+            <summary>
+            生成二维码并添加Logo
+            注：自定义边长
+            </summary>
+            <param name="content">二维码内容</param>
+            <param name="imgSize">二维码边长px</param>
+            <param name="logo">logo图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildQRCode_Logo(System.String,System.Int32,System.Drawing.Color,System.Drawing.Color,System.Drawing.Bitmap)">
+            <summary>
+            生成二维码并添加Logo
+            注：自定义边长以及颜色
+            </summary>
+            <param name="content">二维码内容</param>
+            <param name="imgSize">二维码边长px</param>
+            <param name="background">二维码底色</param>
+            <param name="foreground">二维码前景色</param>
+            <param name="logo">logo图片</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildBarCode(System.String)">
+            <summary>
+            生成条形码
+            注：默认宽150px,高50px
+            </summary>
+            <param name="content">条形码内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.BuildBarCode(System.String,System.Int32,System.Int32)">
+            <summary>
+            生成条形码
+            注：自定义尺寸
+            </summary>
+            <param name="content">条形码内容</param>
+            <param name="width">宽度px</param>
+            <param name="height">高度px</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_QRCode.ReadContent(System.Drawing.Bitmap)">
+            <summary>
+            从二维码读取内容
+            </summary>
+            <param name="image">二维码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Random">
+            <summary>
+            Random随机数帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Random.Next(System.Int32,System.Int32)">
+            <summary>
+            下一个随机数
+            </summary>
+            <param name="minValue">最小值</param>
+            <param name="maxValue">最大值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Random.Next``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            下一个随机值
+            </summary>
+            <typeparam name="T">值类型</typeparam>
+            <param name="source">值的集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Random.GetRandomString(System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            生成随机字符串 
+            </summary>
+            <param name="length">目标字符串的长度</param>
+            <param name="useNum">是否包含数字，1=包含，默认为包含</param>
+            <param name="useLow">是否包含小写字母，1=包含，默认为包含</param>
+            <param name="useUpp">是否包含大写字母，1=包含，默认为包含</param>
+            <param name="useSpe">是否包含特殊字符，1=包含，默认为不包含</param>
+            <param name="custom">要包含的自定义字符，直接输入要包含的字符列表</param>
+            <returns>指定长度的随机字符串</returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Serialize">
+            <summary>
+            序列化帮助类
+            <para>NuGet：Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Serialize.Serialize(System.Object)">
+            <summary>
+            序列化
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Serialize.Deserialize``1(System.Byte[])">
+            <summary>
+            反序列化
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Serialize.JsonSerialize(System.Object,Newtonsoft.Json.JsonConverter[])">
+            <summary>
+            Json 序列化
+            </summary>
+            <param name="value"></param>
+            <param name="converters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Serialize.JsonDeserialize``1(System.String,Newtonsoft.Json.JsonConverter[])">
+            <summary>
+            Json反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="converters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.Helper_Tree">
+            <summary>
+            树结构帮助类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Tree.BuildTree``1(System.Collections.Generic.List{``0})">
+            <summary>
+            建造树结构
+            </summary>
+            <param name="allNodes">所有的节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Tree.GetChildren``1(System.Collections.Generic.List{``0},``0,System.Boolean)">
+            <summary>
+            获取所有子节点
+            注：包括自己
+            </summary>
+            <typeparam name="T">节点类型</typeparam>
+            <param name="allNodes">所有节点</param>
+            <param name="parentNode">父节点</param>
+            <param name="includeSelf">是否包括自己</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Tree._GetChildren``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            获取所有子节点
+            </summary>
+            <typeparam name="T">树模型（TreeModel或继承它的模型）</typeparam>
+            <param name="nodes">所有节点列表</param>
+            <param name="parentNode">父节点Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Helper_Tree.HaveChildren``1(System.Collections.Generic.List{``0},System.String)">
+            <summary>
+            判断当前节点是否有子节点
+            </summary>
+            <typeparam name="T">树模型</typeparam>
+            <param name="nodes">所有节点</param>
+            <param name="nodeId">当前节点Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hugo.Core.Common.TreeModel">
+            <summary>
+            树模型（可以作为父类）
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.TreeModel.Id">
+            <summary>
+            唯一标识Id
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.TreeModel.Value">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.TreeModel.ParentId">
+            <summary>
+            父Id
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.TreeModel.Level">
+            <summary>
+            节点深度
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.TreeModel.Text">
+            <summary>
+            显示的内容
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.Common.TreeModel.Children">
+            <summary>
+            孩子节点
+            </summary>
+        </member>
+    </members>
+</doc>

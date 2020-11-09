@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hugo.Core.Common\Hugo.Core.Common.csproj" />
+    <ProjectReference Include="..\Hugo.Core.DataModel\Hugo.Core.DataModel.csproj" />
+    <ProjectReference Include="..\Hugo.Core.DataView\Hugo.Core.DataView.csproj" />
+  </ItemGroup>
+
+</Project>

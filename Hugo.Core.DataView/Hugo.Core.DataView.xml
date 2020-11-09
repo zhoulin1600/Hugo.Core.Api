@@ -1,0 +1,988 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hugo.Core.DataView</name>
+    </assembly>
+    <members>
+        <member name="T:Hugo.Core.DataView.Base.BaseDataView">
+            <summary>
+            视图数据基类
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Action_Add">
+            <summary>
+            系统功能信息-添加
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Add.ActionName">
+            <summary>
+            <para>属性描述：功能名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Add.MenuId">
+            <summary>
+            <para>属性描述：菜单ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Add.ApiUrl">
+            <summary>
+            <para>属性描述：Api地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Add.Icon">
+            <summary>
+            <para>属性描述：功能图标</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Add.Description">
+            <summary>
+            <para>属性描述：功能描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Add.Sort">
+            <summary>
+            <para>属性描述：功能序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Action_Edit">
+            <summary>
+            系统功能信息-编辑
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.ActionName">
+            <summary>
+            <para>属性描述：功能名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.MenuId">
+            <summary>
+            <para>属性描述：菜单ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.ApiUrl">
+            <summary>
+            <para>属性描述：Api地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.Icon">
+            <summary>
+            <para>属性描述：功能图标</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.Description">
+            <summary>
+            <para>属性描述：功能描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Action_Edit.Sort">
+            <summary>
+            <para>属性描述：功能序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Application_Add">
+            <summary>
+            系统应用信息-添加
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Add.AppName">
+            <summary>
+            <para>属性描述：应用名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Add.AppId">
+            <summary>
+            <para>属性描述：应用ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Add.AppSecret">
+            <summary>
+            <para>属性描述：应用密钥</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Add.AppType">
+            <summary>
+            <para>属性描述：应用ID（1：默认）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Application_Edit">
+            <summary>
+            系统应用信息-编辑
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Edit.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Edit.AppName">
+            <summary>
+            <para>属性描述：应用名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Edit.AppId">
+            <summary>
+            <para>属性描述：应用ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Edit.AppSecret">
+            <summary>
+            <para>属性描述：应用密钥</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Application_Edit.AppType">
+            <summary>
+            <para>属性描述：应用ID（1：默认）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Menu_Add">
+            <summary>
+            系统菜单信息-添加
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.MenuName">
+            <summary>
+            <para>属性描述：菜单名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.ParentId">
+            <summary>
+            <para>属性描述：上级ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.Component">
+            <summary>
+            <para>属性描述：组件名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.LinkUrl">
+            <summary>
+            <para>属性描述：链接地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.Icon">
+            <summary>
+            <para>属性描述：菜单图标</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.IsHidden">
+            <summary>
+            <para>属性描述：是否隐藏</para>
+            <para>默认数据：0</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.Description">
+            <summary>
+            <para>属性描述：菜单描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Add.Sort">
+            <summary>
+            <para>属性描述：菜单序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Menu_Edit">
+            <summary>
+            系统菜单信息-编辑
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.MenuName">
+            <summary>
+            <para>属性描述：菜单名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.ParentId">
+            <summary>
+            <para>属性描述：上级ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.Component">
+            <summary>
+            <para>属性描述：组件名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.LinkUrl">
+            <summary>
+            <para>属性描述：链接地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.Icon">
+            <summary>
+            <para>属性描述：菜单图标</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.IsHidden">
+            <summary>
+            <para>属性描述：是否隐藏</para>
+            <para>默认数据：0</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.Description">
+            <summary>
+            <para>属性描述：菜单描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Menu_Edit.Sort">
+            <summary>
+            <para>属性描述：菜单序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Role_Add">
+            <summary>
+            系统角色信息-添加
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Add.RoleName">
+            <summary>
+            <para>属性描述：角色名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Add.Description">
+            <summary>
+            <para>属性描述：角色描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Add.Sort">
+            <summary>
+            <para>属性描述：角色序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_Role_Edit">
+            <summary>
+            系统角色信息-编辑
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Edit.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Edit.RoleName">
+            <summary>
+            <para>属性描述：角色名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Edit.Status">
+            <summary>
+            <para>属性描述：角色状态（1：启用，2：禁用）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Edit.Description">
+            <summary>
+            <para>属性描述：角色描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_Role_Edit.Sort">
+            <summary>
+            <para>属性描述：角色序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_User_Add">
+            <summary>
+            系统用户信息-添加
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Add.UserName">
+            <summary>
+            <para>属性描述：用户名（唯一）</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Add.Password">
+            <summary>
+            <para>属性描述：登录密码</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.DTO.Sys_User_Edit">
+            <summary>
+            系统用户信息-编辑
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.Status">
+            <summary>
+            <para>属性描述：用户状态（1：启用，2：禁用）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.Type">
+            <summary>
+            <para>属性描述：用户类型（1：系统用户）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.Phone">
+            <summary>
+            <para>属性描述：手机号码</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.RealName">
+            <summary>
+            <para>属性描述：真实性名</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.NickName">
+            <summary>
+            <para>属性描述：用户昵称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.HeadImage">
+            <summary>
+            <para>属性描述：用户头像</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.Sys_User_Edit.Remark">
+            <summary>
+            <para>属性描述：用户备注</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.Enum.DefaultStatus">
+            <summary>
+            默认状态
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.DataView.Enum.DefaultStatus.启用">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.DataView.Enum.DefaultStatus.禁用">
+            <summary>
+            禁用
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.Enum.SysApplicationType">
+            <summary>
+            系统应用类型
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.DataView.Enum.SysApplicationType.默认应用">
+            <summary>
+            默认应用
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.Enum.SysUserType">
+            <summary>
+            系统用户类型
+            </summary>
+        </member>
+        <member name="F:Hugo.Core.DataView.Enum.SysUserType.系统用户">
+            <summary>
+            系统用户
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_Log">
+            <summary>
+            系统日志信息扩展
+            </summary>
+            <summary>
+            系统日志信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.LogTypeName">
+            <summary>
+            <para>属性描述：日志类型名称（1：新增，2：编辑，3：删除，4：查询）</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.IP">
+            <summary>
+            <para>属性描述：IP地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.OperatorId">
+            <summary>
+            <para>属性描述：操作人ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.OperatorName">
+            <summary>
+            <para>属性描述：操作人名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.LogType">
+            <summary>
+            <para>属性描述：日志类型（1：新增，2：编辑，3：删除，4：查询，5：登录）</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Log.LogContent">
+            <summary>
+            <para>属性描述：日志内容</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_Action">
+            <summary>
+            系统功能信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.ActionName">
+            <summary>
+            <para>属性描述：功能名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.MenuId">
+            <summary>
+            <para>属性描述：菜单ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.ApiUrl">
+            <summary>
+            <para>属性描述：Api地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.Icon">
+            <summary>
+            <para>属性描述：功能图标</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.Description">
+            <summary>
+            <para>属性描述：功能描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.Sort">
+            <summary>
+            <para>属性描述：功能序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Action.IsDeleted">
+            <summary>
+            <para>属性描述：是否已删除</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_Application">
+            <summary>
+            系统应用信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Application.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Application.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Application.AppName">
+            <summary>
+            <para>属性描述：应用名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Application.AppId">
+            <summary>
+            <para>属性描述：应用ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Application.AppSecret">
+            <summary>
+            <para>属性描述：应用密钥</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Application.AppType">
+            <summary>
+            <para>属性描述：应用ID（1：默认）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_Menu">
+            <summary>
+            系统菜单信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.MenuName">
+            <summary>
+            <para>属性描述：菜单名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.ParentId">
+            <summary>
+            <para>属性描述：上级ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.Component">
+            <summary>
+            <para>属性描述：组件名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.LinkUrl">
+            <summary>
+            <para>属性描述：链接地址</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.Icon">
+            <summary>
+            <para>属性描述：菜单图标</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.IsHidden">
+            <summary>
+            <para>属性描述：是否隐藏</para>
+            <para>默认数据：0</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.Description">
+            <summary>
+            <para>属性描述：菜单描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.Sort">
+            <summary>
+            <para>属性描述：菜单序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Menu.IsDeleted">
+            <summary>
+            <para>属性描述：是否已删除</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_Permission">
+            <summary>
+            系统权限信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Permission.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Permission.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Permission.RoleId">
+            <summary>
+            <para>属性描述：角色ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Permission.MenuId">
+            <summary>
+            <para>属性描述：菜单ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Permission.ActionIds">
+            <summary>
+            <para>属性描述：功能集合</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Permission.IsDeleted">
+            <summary>
+            <para>属性描述：是否已删除</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_Role">
+            <summary>
+            系统角色信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.RoleName">
+            <summary>
+            <para>属性描述：角色名称</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.Status">
+            <summary>
+            <para>属性描述：角色状态（1：启用，2：禁用）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.Description">
+            <summary>
+            <para>属性描述：角色描述</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.Sort">
+            <summary>
+            <para>属性描述：角色序号</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_Role.IsDeleted">
+            <summary>
+            <para>属性描述：是否已删除</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_User">
+            <summary>
+            系统用户信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.UserName">
+            <summary>
+            <para>属性描述：用户名（唯一）</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.Password">
+            <summary>
+            <para>属性描述：登录密码</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.Status">
+            <summary>
+            <para>属性描述：用户状态（1：启用，2：禁用）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.Type">
+            <summary>
+            <para>属性描述：用户类型（1：系统用户）</para>
+            <para>默认数据：1</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.Phone">
+            <summary>
+            <para>属性描述：手机号码</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.RealName">
+            <summary>
+            <para>属性描述：真实性名</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.NickName">
+            <summary>
+            <para>属性描述：用户昵称</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.HeadImage">
+            <summary>
+            <para>属性描述：用户头像</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.Remark">
+            <summary>
+            <para>属性描述：用户备注</para>
+            <para>默认数据：</para>
+            <para>是否可空：True</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_User.IsDeleted">
+            <summary>
+            <para>属性描述：是否已删除</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="T:Hugo.Core.DataView.View_Sys_UserRole">
+            <summary>
+            用户角色信息
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_UserRole.Id">
+            <summary>
+            <para>属性描述：主键ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_UserRole.CreateTime">
+            <summary>
+            <para>属性描述：创建时间</para>
+            <para>默认数据：DateTime.Now</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_UserRole.UserId">
+            <summary>
+            <para>属性描述：用户ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_UserRole.RoleId">
+            <summary>
+            <para>属性描述：角色ID</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.View_Sys_UserRole.IsDeleted">
+            <summary>
+            <para>属性描述：是否已删除</para>
+            <para>默认数据：0</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+    </members>
+</doc>

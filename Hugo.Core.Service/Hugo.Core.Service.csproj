@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Hugo.Core.WebApi\bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hugo.Core.IRepository\Hugo.Core.IRepository.csproj" />
+    <ProjectReference Include="..\Hugo.Core.IService\Hugo.Core.IService.csproj" />
+  </ItemGroup>
+
+</Project>

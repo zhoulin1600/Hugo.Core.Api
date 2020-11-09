@@ -1,0 +1,46 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Data.dll" #>
+<#@ assembly name="System.Data.DataSetExtensions.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ assembly name="$(SolutionDir)Hugo.Core.Common\bin\Debug\netcoreapp3.1\Hugo.Core.Common.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ output extension=".cs" #>
+<#@ include file="$(SolutionDir)Hugo.Core.Common\T4\DbHelper.ttinclude" #>
+using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using SqlSugar;
+
+namespace Hugo.Core.DataModel
+{
+	<# var dataSource = "Data Source=.;Initial Catalog=Hugo;User ID=sa;Password=1433;"; #>
+	<# var database = "Hugo"; #>
+	<# foreach(var table in DbHelper.GetDbTables(dataSource, database)){ #>
+
+	/// <summary>
+	/// <#= table.SchemaName.Replace(Environment.NewLine, "") #>.<#= table.TableName #>
+	/// </summary>
+	public class <#= table.TableName #> : Base.BaseDataModel
+	{
+		<# foreach(var column in DbHelper.GetDbColumns(dataSource, database, table.TableName)){ #>
+
+		/// <summary>
+		/// <#= column.Remark.Replace(Environment.NewLine, "") #>
+		/// </summary>
+		<#= column.IsPrimaryKey ? (column.IsIdentity ? "[SugarColumn(IsPrimaryKey = true , IsIdentity = true)]" : "[SugarColumn(IsPrimaryKey = true)]") : string.Empty #>
+		public <#= column.CSharpType #><# if(column.CommonType.IsValueType && column.IsNullable){ #>?<# } #> <#= column.ColumnName #> { get; set; }
+		<# } #>	
+	}
+	<# } #> 
+}

@@ -1,0 +1,58 @@
+﻿{
+  "IpRateLimiting": {
+    // false则全局将应用限制，并且仅应用具有作为端点的规则* 。 true则限制将应用于每个端点，如{HTTP_Verb}{PATH}
+    "EnableEndpointRateLimiting": true,
+    // false则拒绝的API调用不会添加到调用次数计数器上
+    "StackBlockedRequests": false,
+    // 注意这个配置，表示获取用户端的真实IP，我们的线上经过负载后是 X-Forwarded-For，而测试服务器没有，所以是X-Real-IP
+    "RealIpHeader": "X-Real-IP",
+    "ClientIdHeader": "X-ClientId",
+    "HttpStatusCode": 429,
+    // 自定义返回的内容，所以必须设置HttpStatusCode和StatusCode为200
+    "QuotaExceededResponse": {
+      "Content": "{{ \"StatusCode\": 429, \"Message\": \"访问过于频繁，请稍后重试\", \"Success\": false }}",
+      "ContentType": "application/json; charset=utf-8",
+      "StatusCode": 429
+    },
+    // IP白名单，本地调试或者UAT环境，可以加入相应的IP，略过策略的限制；
+    "IpWhitelist": [],
+    // 端点白名单，如果全局配置了访问策略，设置端点白名单相当于IP白名单一样，略过策略的限制；
+    "EndpointWhitelist": [ "get:/api/xxx", "*:/api/yyy" ],
+    // 客户端白名单
+    "ClientWhitelist": [ "dev-client-1", "dev-client-2" ],
+    // api规则,结尾一定要带* 具体的策略，根据不同需求配置不同端点即可， Period的单位可以是s, m, h, d，Limint是单位时间内的允许访问的次数
+    "GeneralRules": [
+      //{
+      //  // 所有接口规则
+      //  "Endpoint": "*",
+      //  "Period": "1s",
+      //  "Limit": 2
+      //},
+      //{
+      //  "Endpoint": "*:/api/blog*",
+      //  "Period": "1m",
+      //  "Limit": 20
+      //},
+      {
+        "Endpoint": "*/api/*",
+        "Period": "1s",
+        "Limit": 3
+      },
+      {
+        "Endpoint": "*/api/*",
+        "Period": "1m",
+        "Limit": 150
+      },
+      {
+        "Endpoint": "*/api/*",
+        "Period": "1h",
+        "Limit": 5000
+      },
+      {
+        "Endpoint": "*/api/*",
+        "Period": "1d",
+        "Limit": 100000
+      }
+    ]
+  }
+}
