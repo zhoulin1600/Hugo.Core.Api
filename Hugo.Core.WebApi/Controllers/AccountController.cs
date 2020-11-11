@@ -5,6 +5,7 @@ using Hugo.Core.Common.Auth;
 using Hugo.Core.Common.Controller;
 using Hugo.Core.Common.Filter;
 using Hugo.Core.Common.Http;
+using Hugo.Core.DataView.DTO;
 using Hugo.Core.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,17 +33,17 @@ namespace Hugo.Core.WebApi.Controllers
         }
 
         /// <summary>
-        /// 管理后台登录
+        /// 管理后台用户名密码登录
         /// </summary>
-        /// <param name="loginName">登录名</param>
-        /// <param name="loginPwd">登录密码</param>
+        /// <param name="loginManage">用户名密码登录对象</param>
         /// <returns></returns>
-        [HttpGet]
+        //[HttpGet("{loginName}/{loginPwd}")]
+        [HttpPost]
         [AllowAnonymous]
-        public async Task<ApiResult> LoginManage([FromQuery] string loginName, string loginPwd)
+        public async Task<ApiResult> LoginManage([FromBody] View_LoginManage loginManage)
         {
-            if(loginName.IsNullOrEmpty()||loginPwd.IsNullOrEmpty())
-                return Error("用户名或密码不能为空", 0);
+            //if(loginName.IsNullOrEmpty()||loginPwd.IsNullOrEmpty())
+            //    return Error("用户名或密码不能为空", 0);
 
 
 
@@ -67,7 +68,7 @@ namespace Hugo.Core.WebApi.Controllers
             //var jwtTokenInfo = AccessToken.IssueJwtToken(jwtTokenData, authorizationRequirement);
             //return Success(jwtTokenInfo);
 
-            return await accountService.LoginManage(loginName, loginPwd);
+            return await accountService.LoginManage(loginManage.Username, loginManage.Password);
         }
 
         /// <summary>

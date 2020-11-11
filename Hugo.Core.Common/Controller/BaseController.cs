@@ -10,7 +10,8 @@ namespace Hugo.Core.Common.Controller
     /// <para>用于解决swagger文档No operations defined in spec!问题</para>
     /// </summary>
     [ApiController]
-    [Route("Api/[controller]/[action]")]
+    [Route("Api/[controller]")]
+    //[Route("Api/[controller]/[action]")]
     [ResponseFormat]//响应格式化
     //[Authorize]//认证授权
     //[AllowAnonymous]//允许匿名

@@ -9,6 +9,25 @@
             视图数据基类
             </summary>
         </member>
+        <member name="T:Hugo.Core.DataView.DTO.View_LoginManage">
+            <summary>
+            管理后台用户名密码登录对象
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.View_LoginManage.Username">
+            <summary>
+            <para>属性描述：用户名</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
+        <member name="P:Hugo.Core.DataView.DTO.View_LoginManage.Password">
+            <summary>
+            <para>属性描述：密码</para>
+            <para>默认数据：</para>
+            <para>是否可空：False</para>
+            </summary>
+        </member>
         <member name="T:Hugo.Core.DataView.DTO.Sys_Action_Add">
             <summary>
             系统功能信息-添加

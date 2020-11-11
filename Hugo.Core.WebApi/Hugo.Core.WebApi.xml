@@ -9,12 +9,11 @@
             Api控制器：账户操作
             </summary>
         </member>
-        <member name="M:Hugo.Core.WebApi.Controllers.AccountController.LoginManage(System.String,System.String)">
+        <member name="M:Hugo.Core.WebApi.Controllers.AccountController.LoginManage(Hugo.Core.DataView.DTO.View_LoginManage)">
             <summary>
-            管理后台登录
+            管理后台用户名密码登录
             </summary>
-            <param name="loginName">登录名</param>
-            <param name="loginPwd">登录密码</param>
+            <param name="loginManage">用户名密码登录对象</param>
             <returns></returns>
         </member>
         <member name="M:Hugo.Core.WebApi.Controllers.AccountController.GetLoginManageData">
