@@ -33,13 +33,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hugo.Core.AutoMapperProfile
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-单元测试", "5-单元测试", "{1E3A5147-1951-4F45-95AE-B39450020056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hugo.Core.MSTest", "Hugo.Core.MSTest\Hugo.Core.MSTest.csproj", "{61ADD4BC-611C-4BF9-9CCE-003F2289873A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hugo.Core.MSTest", "Hugo.Core.MSTest\Hugo.Core.MSTest.csproj", "{61ADD4BC-611C-4BF9-9CCE-003F2289873A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hugo.Core.XUnitTest", "Hugo.Core.XUnitTest\Hugo.Core.XUnitTest.csproj", "{E960CCFD-57E0-4CA7-8696-CF660D668716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hugo.Core.XUnitTest", "Hugo.Core.XUnitTest\Hugo.Core.XUnitTest.csproj", "{E960CCFD-57E0-4CA7-8696-CF660D668716}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6-控制台", "6-控制台", "{A7282F85-6C2A-40F0-A0B6-CE63EF193A0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hugo.Core.ConsoleApp", "Hugo.Core.ConsoleApp\Hugo.Core.ConsoleApp.csproj", "{1FB3F1AD-DD84-4292-9F47-4460A39A5C93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hugo.Core.ConsoleApp", "Hugo.Core.ConsoleApp\Hugo.Core.ConsoleApp.csproj", "{1FB3F1AD-DD84-4292-9F47-4460A39A5C93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7-发布", "7-发布", "{BB921B77-6BDC-459D-B84E-58341412327E}"
+	ProjectSection(SolutionItems) = preProject
+		Hugo.Build.bat = Hugo.Build.bat
+		Hugo.Publish.bat = Hugo.Publish.bat
+		Hugo.Publish.Docker.sh = Hugo.Publish.Docker.sh
+		Hugo.Publish.Linux.sh = Hugo.Publish.Linux.sh
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
