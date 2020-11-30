@@ -488,6 +488,21 @@
             <param name="assembly">程序集</param>
             <returns></returns>
         </member>
+        <member name="T:Hugo.Core.Common.AutoMapperTool.CustomMapper`2">
+            <summary>
+            自定义通用对象映射 - 静态泛型缓存
+            <para>轻量级，高性能</para>
+            </summary>
+            <typeparam name="TSource">来源类型</typeparam>
+            <typeparam name="TResult">映射类型</typeparam>
+        </member>
+        <member name="M:Hugo.Core.Common.AutoMapperTool.CustomMapper`2.Map(`0)">
+            <summary>
+            获取映射
+            </summary>
+            <param name="source">来源对象</param>
+            <returns>映射对象</returns>
+        </member>
         <member name="T:Hugo.Core.Common.Cache.MemoryCacheService">
             <summary>
             Memory缓存服务注入扩展
