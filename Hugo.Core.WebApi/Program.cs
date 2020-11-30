@@ -23,7 +23,7 @@ namespace Hugo.Core.WebApi
                 {
                     loggingBuilder.AddFilter("System", LogLevel.Error); //过滤系统默认的一些日志
                     loggingBuilder.AddFilter("Microsoft", LogLevel.Error);//过滤系统默认的一些日志
-                    loggingBuilder.AddLog4Net(Path.Combine(AppContext.BaseDirectory, "Logger\\log4net.config"));//配置文件
+                    loggingBuilder.AddLog4Net(Path.Combine(AppContext.BaseDirectory, "Logger/log4net.config"));//配置文件
                 })
                 .ConfigureAppConfiguration((context, config) =>
                 {
