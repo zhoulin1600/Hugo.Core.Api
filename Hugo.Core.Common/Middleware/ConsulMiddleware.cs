@@ -31,14 +31,17 @@ namespace Hugo.Core.Common.Middleware
                     c.Address = new Uri(configuration["ConsulSetting:ConsulAddress"]);//Consul服务器地址
                 });
 
+                string[] tags = configuration.GetSection("ConsulSetting:Tags").Get<string[]>();
+                IDictionary<string, string> meta = configuration.GetSection("ConsulSetting:Meta:0").Get<Dictionary<string, string>>();
                 // 初始化Consul服务注册实例
                 var registration = new AgentServiceRegistration()
                 {
                     ID = $"Service：{Guid.NewGuid()}",//服务实例唯一标识
                     Name = configuration["ConsulSetting:ServiceName"],//服务名（组名）
-                    Address = configuration["ConsulSetting:ServiceIP"], //服务IP
+                    Address = configuration["ConsulSetting:ServiceIP"],//服务IP
                     Port = int.Parse(configuration["ConsulSetting:ServicePort"]),//服务端口
-                    Tags = new string[] { configuration["ConsulSetting:Tag"] },//服务标签
+                    Tags = tags,//服务标签
+                    Meta = meta,//服务参数字典
                     Check = new AgentServiceCheck()
                     {
                         // 服务健康检查
