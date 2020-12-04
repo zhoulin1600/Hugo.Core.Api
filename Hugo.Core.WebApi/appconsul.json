@@ -1,0 +1,15 @@
+{
+  "ConsulSetting": {
+    "ConsulAddress": "http://localhost:8500", //Consul服务器地址
+    "ServiceName": "HugoService", //服务名（组名）
+    "ServiceIP": "localhost", //服务IP
+    "ServicePort": "9000", //服务端口
+    //服务健康检查
+    "ServiceHealthCheck": {
+      "HTTP": "/HealthCheck", //接口地址
+      "Interval": 10, //时间间隔（秒）
+      "Timeout": 5, //超时时间（秒）
+      "DeregisterCriticalServiceAfter": 30 //失败后多久移除（秒）
+    }
+  }
+}

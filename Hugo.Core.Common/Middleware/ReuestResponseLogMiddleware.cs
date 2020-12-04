@@ -130,7 +130,7 @@ namespace Hugo.Core.Common.Middleware
     public static class ReuestResponseMiddlewareExtension
     {
         /// <summary>
-        /// 启用请求响应记录中间件
+        /// 请求响应记录中间件
         /// </summary>
         /// <param name="app">应用构造器</param>
         /// <returns></returns>

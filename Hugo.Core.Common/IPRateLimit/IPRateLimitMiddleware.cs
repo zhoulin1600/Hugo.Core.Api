@@ -33,7 +33,7 @@ namespace Hugo.Core.Common.IPRateLimit
     public static class IPRateLimitMiddlewareExtension
     {
         /// <summary>
-        /// 启用IP限流服务中间件
+        /// IP限流服务中间件
         /// </summary>
         /// <param name="app">应用构造器</param>
         public static void UseIPRateLimitMiddleware(this IApplicationBuilder app)

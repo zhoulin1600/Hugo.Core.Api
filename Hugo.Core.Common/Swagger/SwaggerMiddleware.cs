@@ -11,7 +11,7 @@ namespace Hugo.Core.Common.Swagger
     public static class SwaggerMiddleware
     {
         /// <summary>
-        /// 启用Swagger - API文档中间件
+        /// Swagger - API文档中间件
         /// </summary>
         /// <param name="app">应用构造器</param>
         /// <param name="funcStream">用于检索swagger-ui页面的Stream函数</param>

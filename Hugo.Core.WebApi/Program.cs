@@ -29,6 +29,8 @@ namespace Hugo.Core.WebApi
                 {
                     // 添加自定义配置文件（IP限流服务配置）
                     config.AddJsonFile($"appratelimit.json", optional: true, reloadOnChange: true);
+                    // 添加自定义配置文件（Consul注册服务配置）
+                    config.AddJsonFile($"appconsul.json", optional: true, reloadOnChange: true);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

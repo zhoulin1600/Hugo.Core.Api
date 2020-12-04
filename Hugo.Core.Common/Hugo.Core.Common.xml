@@ -793,7 +793,7 @@
         </member>
         <member name="M:Hugo.Core.Common.GlobalExceptionMiddlewareExtension.UseGlobalExceptionMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            启用全局异常捕获中间件
+            全局异常捕获中间件
             </summary>
             <param name="app">应用构造器</param>
             <returns></returns>
@@ -2151,7 +2151,7 @@
         </member>
         <member name="M:Hugo.Core.Common.IPRateLimit.IPRateLimitMiddlewareExtension.UseIPRateLimitMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            启用IP限流服务中间件
+            IP限流服务中间件
             </summary>
             <param name="app">应用构造器</param>
         </member>
@@ -2335,6 +2335,20 @@
             Redis队列Key
             </summary>
         </member>
+        <member name="T:Hugo.Core.Common.Middleware.ConsulMiddleware">
+            <summary>
+            Consul注册服务中间件
+            <para>NuGet：Install-Package Consul</para>
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.Middleware.ConsulMiddleware.UseConsulMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Hosting.IHostApplicationLifetime)">
+            <summary>
+            Consul注册服务中间件
+            </summary>
+            <param name="app">应用构造器</param>
+            <param name="configuration">配置文件</param>
+            <param name="lifetime"></param>
+        </member>
         <member name="T:Hugo.Core.Common.Middleware.IPLogMiddleware">
             <summary>
             IP请求数据记录中间件
@@ -2347,7 +2361,7 @@
         </member>
         <member name="M:Hugo.Core.Common.Middleware.IPLogMiddlewareExtension.UseIPLogMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            启用请求响应记录中间件
+            请求响应记录中间件
             </summary>
             <param name="app">应用构造器</param>
             <returns></returns>
@@ -2378,7 +2392,7 @@
         </member>
         <member name="M:Hugo.Core.Common.Middleware.ReuestResponseMiddlewareExtension.UseReuestResponseMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            启用请求响应记录中间件
+            请求响应记录中间件
             </summary>
             <param name="app">应用构造器</param>
             <returns></returns>
@@ -2668,7 +2682,7 @@
         </member>
         <member name="M:Hugo.Core.Common.Swagger.SwaggerMiddleware.UseSwaggerMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Func{System.IO.Stream})">
             <summary>
-            启用Swagger - API文档中间件
+            Swagger - API文档中间件
             </summary>
             <param name="app">应用构造器</param>
             <param name="funcStream">用于检索swagger-ui页面的Stream函数</param>

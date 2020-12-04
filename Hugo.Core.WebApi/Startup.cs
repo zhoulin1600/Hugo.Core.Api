@@ -117,18 +117,18 @@ namespace Hugo.Core.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime lifetime)
         {
-            // 启用IP限流服务，尽量放管道外层
+            // IP限流服务，尽量放管道外层
             app.UseIPRateLimitMiddleware();//app.UseIpRateLimiting();
 
-            // 启用响应压缩
+            // 响应压缩
             app.UseResponseCompression();
 
-            // 启用请求和响应数据日志记录
+            // 请求和响应数据日志记录
             app.UseReuestResponseMiddleware();
 
-            // 启用IP请求数据记录中间件
+            // IP请求数据记录中间件
             app.UseIPLogMiddleware();
 
             ////允许body重用
@@ -138,40 +138,40 @@ namespace Hugo.Core.WebApi
             //    return next(context);
             //})
 
-            // 启用开发环境异常页面
+            // 开发环境异常页面
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            // 启用全局异常捕获中间件
+            // 全局异常捕获中间件
             app.UseGlobalExceptionMiddleware();
 
-            // 启用API文档中间件（Swagger）
+            // Swagger API文档中间件（Swagger）
             app.UseSwaggerMiddleware(() => GetType().GetTypeInfo().Assembly.GetManifestResourceStream("Hugo.Core.WebApi.index.html"));
 
-            // 启用Cors跨域策略
+            // Cors跨域策略
             app.UseCors(AppSettings.GetSetting("Cors", "PolicyName"));
 
-            // 启用Https重定向
+            // Https重定向
             //app.UseHttpsRedirection();
 
-            // 启用静态文件
+            // 静态文件
             app.UseStaticFiles();
 
-            // 启用路由
+            // 路由
             app.UseRouting();
 
-            // 启用认证中间件 注意顺序（UseRouting -> UseAuthentication -> UseAuthorization）
+            // 认证中间件 注意顺序（UseRouting -> UseAuthentication -> UseAuthorization）
             app.UseAuthentication();
 
-            // 启用授权中间件
+            // 授权中间件
             app.UseAuthorization();
 
-            // 启用性能分析器
+            // 性能分析器
             app.UseMiniProfiler();
 
-            // 启用终结点
+            // 终结点
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -188,6 +188,10 @@ namespace Hugo.Core.WebApi
                 // SignalR实时推送服务路由
                 endpoints.MapHub<ChatHub>("/api2/chatHub").RequireCors(t => t.WithOrigins(new string[] { "null" }).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             });
+
+            // Consul注册服务中间件
+            app.UseConsulMiddleware(Configuration, lifetime);
+
         }
     }
 }

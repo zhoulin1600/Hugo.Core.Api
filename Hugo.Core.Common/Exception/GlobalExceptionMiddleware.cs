@@ -82,7 +82,7 @@ namespace Hugo.Core.Common
     public static class GlobalExceptionMiddlewareExtension
     {
         /// <summary>
-        /// 启用全局异常捕获中间件
+        /// 全局异常捕获中间件
         /// </summary>
         /// <param name="app">应用构造器</param>
         /// <returns></returns>
