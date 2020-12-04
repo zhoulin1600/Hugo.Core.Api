@@ -1,15 +1,16 @@
-{
+ï»¿{
   "ConsulSetting": {
-    "ConsulAddress": "http://localhost:8500", //Consul·şÎñÆ÷µØÖ·
-    "ServiceName": "HugoService", //·şÎñÃû£¨×éÃû£©
-    "ServiceIP": "localhost", //·şÎñIP
-    "ServicePort": "9000", //·şÎñ¶Ë¿Ú
-    //·şÎñ½¡¿µ¼ì²é
+    "ConsulAddress": "http://localhost:8500", //ConsulæœåŠ¡å™¨åœ°å€
+    "ServiceName": "HugoService", //æœåŠ¡åï¼ˆç»„åï¼‰
+    "ServiceIP": "localhost", //æœåŠ¡IP
+    "ServicePort": "9000", //æœåŠ¡ç«¯å£
+    "Tag": "Apiæ¥å£æœåŠ¡",
+    //æœåŠ¡å¥åº·æ£€æŸ¥
     "ServiceHealthCheck": {
-      "HTTP": "/HealthCheck", //½Ó¿ÚµØÖ·
-      "Interval": 10, //Ê±¼ä¼ä¸ô£¨Ãë£©
-      "Timeout": 5, //³¬Ê±Ê±¼ä£¨Ãë£©
-      "DeregisterCriticalServiceAfter": 30 //Ê§°Üºó¶à¾ÃÒÆ³ı£¨Ãë£©
+      "HTTP": "/HealthCheck", //æ¥å£åœ°å€
+      "Interval": 10, //æ—¶é—´é—´éš”ï¼ˆç§’ï¼‰
+      "Timeout": 5, //è¶…æ—¶æ—¶é—´ï¼ˆç§’ï¼‰
+      "DeregisterCriticalServiceAfter": 30 //å¤±è´¥åå¤šä¹…ç§»é™¤ï¼ˆç§’ï¼‰
     }
   }
 }

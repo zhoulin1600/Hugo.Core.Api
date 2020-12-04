@@ -38,6 +38,7 @@ namespace Hugo.Core.Common.Middleware
                     Name = configuration["ConsulSetting:ServiceName"],//服务名（组名）
                     Address = configuration["ConsulSetting:ServiceIP"], //服务IP
                     Port = int.Parse(configuration["ConsulSetting:ServicePort"]),//服务端口
+                    Tags = new string[] { configuration["ConsulSetting:Tag"] },//服务标签
                     Check = new AgentServiceCheck()
                     {
                         // 服务健康检查
