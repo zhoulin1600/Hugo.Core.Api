@@ -800,43 +800,46 @@
         </member>
         <member name="T:Hugo.Core.Common.Extension">
             <summary>
-            拓展类
+            FilterContext 拓展类
             </summary>
             <summary>
-            拓展类
+            Byte 拓展类
             </summary>
             <summary>
-            拓展类
+            DataTable 拓展类
             </summary>
             <summary>
-            拓展类
+            DateTime 拓展类
             </summary>
             <summary>
-            拓展类
+            Enum 拓展类
             </summary>
             <summary>
-            拓展类
+            ExpandoObject 拓展类
             </summary>
             <summary>
-            拓展类
+            Expression 拓展类
             </summary>
             <summary>
-            拓展类
+            Guid 拓展类
             </summary>
             <summary>
-            拓展类
+            HttpRequest 拓展类
             </summary>
             <summary>
-            拓展类
+            IEnumerable 拓展类
             </summary>
             <summary>
-            拓展类
+            Int 拓展类
             </summary>
             <summary>
-            拓展类
+            Object 拓展类
             </summary>
             <summary>
-            拓展类
+            Stream 拓展类
+            </summary>
+            <summary>
+            String 拓展类
             </summary>
         </member>
         <member name="M:Hugo.Core.Common.Extension.ContainsFilter``1(Microsoft.AspNetCore.Mvc.Filters.FilterContext)">
@@ -1019,6 +1022,51 @@
             获取枚举描述
             </summary>
             <param name="value">枚举值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.AddProperty(System.Dynamic.ExpandoObject,System.String,System.Object)">
+            <summary>
+            添加属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.SetProperty(System.Dynamic.ExpandoObject,System.String,System.Object)">
+            <summary>
+            设置属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+            <param name="value">属性值</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetProperty(System.Dynamic.ExpandoObject,System.String)">
+            <summary>
+            获取属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.GetProperties(System.Dynamic.ExpandoObject)">
+            <summary>
+            获取所有属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.RemoveProperty(System.Dynamic.ExpandoObject,System.String)">
+            <summary>
+            删除属性
+            </summary>
+            <param name="expandoObj">动态对象</param>
+            <param name="propertyName">属性名</param>
+        </member>
+        <member name="M:Hugo.Core.Common.Extension.ToDataTable(System.Collections.Generic.IEnumerable{System.Dynamic.ExpandoObject})">
+            <summary>
+            将动态属性对象ExpandoObject列表转为DataTable
+            </summary>
+            <param name="dataList">数据源</param>
             <returns></returns>
         </member>
         <member name="M:Hugo.Core.Common.Extension.Compose``1(System.Linq.Expressions.Expression{``0},System.Linq.Expressions.Expression{``0},System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
@@ -1339,11 +1387,6 @@
             <param name="jsGetTime">js中Date.getTime()</param>
             <returns></returns>
         </member>
-        <member name="M:Hugo.Core.Common.Extension.#cctor">
-            <summary>
-            构造函数
-            </summary>
-        </member>
         <member name="M:Hugo.Core.Common.Extension.ToBytes(System.Object)">
             <summary>
             将一个object对象序列化，返回一个byte[]         
@@ -1356,13 +1399,6 @@
             判断是否为Null或者空
             </summary>
             <param name="obj">对象</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hugo.Core.Common.Extension.ToJson(System.Object)">
-            <summary>
-            将对象序列化成Json字符串
-            </summary>
-            <param name="obj">需要序列化的对象</param>
             <returns></returns>
         </member>
         <member name="M:Hugo.Core.Common.Extension.EntityToJson(System.Object)">
@@ -1430,7 +1466,7 @@
             <param name="fieldName">字段名</param>
             <returns></returns>
         </member>
-        <member name="M:Hugo.Core.Common.Extension.GetGetFieldValue(System.Object,System.String)">
+        <member name="M:Hugo.Core.Common.Extension.GetFieldValue(System.Object,System.String)">
             <summary>
             获取某字段值
             </summary>
@@ -1681,27 +1717,11 @@
             <param name="str"></param>
             <returns></returns>
         </member>
-        <member name="M:Hugo.Core.Common.Extension.ToObject``1(System.String)">
-            <summary>
-            将Json字符串反序列化为对象
-            </summary>
-            <typeparam name="T">对象类型</typeparam>
-            <param name="jsonStr">Json字符串</param>
-            <returns></returns>
-        </member>
         <member name="M:Hugo.Core.Common.Extension.RemoveAt(System.String)">
             <summary>
             删除Json字符串中键中的@符号
             </summary>
             <param name="jsonStr">json字符串</param>
-            <returns></returns>
-        </member>
-        <member name="M:Hugo.Core.Common.Extension.ToObject(System.String,System.Type)">
-            <summary>
-            将Json字符串反序列化为对象
-            </summary>
-            <param name="jsonStr">json字符串</param>
-            <param name="type">对象类型</param>
             <returns></returns>
         </member>
         <member name="M:Hugo.Core.Common.Extension.XmlStrToObject``1(System.String)">
@@ -1797,6 +1817,34 @@
             <summary>
             继承ExpressionVisitor类，实现参数替换统一
             </summary>
+        </member>
+        <member name="T:Hugo.Core.Common.JsonExtension">
+            <summary>
+            Json 拓展类
+            </summary>
+        </member>
+        <member name="M:Hugo.Core.Common.JsonExtension.ToJson(System.Object)">
+            <summary>
+            将对象序列化成Json字符串
+            </summary>
+            <param name="obj">需要序列化的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.JsonExtension.ToObject``1(System.String)">
+            <summary>
+            将Json字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="jsonStr">Json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.JsonExtension.ToObject(System.String,System.Type)">
+            <summary>
+            将Json字符串反序列化为对象
+            </summary>
+            <param name="jsonStr">json字符串</param>
+            <param name="type">对象类型</param>
+            <returns></returns>
         </member>
         <member name="T:Hugo.Core.Common.Filter.BaseActionFilterAsync">
             <summary>

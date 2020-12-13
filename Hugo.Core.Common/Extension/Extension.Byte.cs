@@ -8,7 +8,7 @@ using System.Text;
 namespace Hugo.Core.Common
 {
     /// <summary>
-    /// 拓展类
+    /// Byte 拓展类
     /// </summary>
     public static partial class Extension
     {

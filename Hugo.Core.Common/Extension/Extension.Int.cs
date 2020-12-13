@@ -3,7 +3,7 @@
 namespace Hugo.Core.Common
 {
     /// <summary>
-    /// 拓展类
+    /// Int 拓展类
     /// </summary>
     public static partial class Extension
     {

@@ -9,25 +9,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Hugo.Core.Common
 {
     /// <summary>
-    /// 拓展类
+    /// Object 拓展类
     /// </summary>
     public static partial class Extension
     {
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        static Extension()
-        {
-            JsonSerializerSettings setting = new JsonSerializerSettings();
-            JsonConvert.DefaultSettings = new Func<JsonSerializerSettings>(() =>
-            {
-                //日期类型默认格式化处理
-                setting.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
-                setting.DateFormatString = "yyyy-MM-dd HH:mm:ss";
-                return setting;
-            });
-        }
-
         private static BindingFlags _bindingFlags { get; }
             = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static;
 
@@ -60,16 +45,6 @@ namespace Hugo.Core.Common
                 string objStr = obj.ToString();
                 return string.IsNullOrEmpty(objStr);
             }
-        }
-
-        /// <summary>
-        /// 将对象序列化成Json字符串
-        /// </summary>
-        /// <param name="obj">需要序列化的对象</param>
-        /// <returns></returns>
-        public static string ToJson(this object obj)
-        {
-            return JsonConvert.SerializeObject(obj);
         }
 
         /// <summary>
@@ -190,7 +165,7 @@ namespace Hugo.Core.Common
         /// <param name="obj">对象</param>
         /// <param name="fieldName">字段名</param>
         /// <returns></returns>
-        public static object GetGetFieldValue(this object obj, string fieldName)
+        public static object GetFieldValue(this object obj, string fieldName)
         {
             return obj.GetType().GetField(fieldName, _bindingFlags).GetValue(obj);
         }

@@ -5,7 +5,7 @@ using System.Globalization;
 namespace Hugo.Core.Common
 {
     /// <summary>
-    /// 拓展类
+    /// DateTime 拓展类
     /// </summary>
     public static partial class Extension
     {

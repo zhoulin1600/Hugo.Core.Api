@@ -94,17 +94,13 @@ namespace Hugo.Core.WebApi
                 options.Filters.Add<GlobalExceptionFilter>();
             })
             // NuGet：Install-Package Microsoft.AspNetCore.Mvc.NewtonsoftJson
-            .AddNewtonsoftJson(setupAction=> {
-                // 数据格式按原样输出 不使用驼峰样式的key
-                setupAction.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                // 忽略循环引用
-                setupAction.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                // 忽略空值
-                setupAction.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                // 设置时间格式
-                setupAction.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
-                // 数据格式首字母小写
-                //setupAction.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            .AddNewtonsoftJson(setupAction=> 
+            {
+                setupAction.SerializerSettings.GetType().GetProperties().ForEach(propertyInfo =>
+                {
+                    var value = propertyInfo.GetValue(JsonExtension.DefaultJsonSetting);
+                    propertyInfo.SetValue(setupAction.SerializerSettings, value);
+                });
             });
 
         }

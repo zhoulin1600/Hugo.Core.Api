@@ -15,7 +15,7 @@ using System.Xml;
 namespace Hugo.Core.Common
 {
     /// <summary>
-    /// 拓展类
+    /// String 拓展类
     /// </summary>
     public static partial class Extension
     {
@@ -374,17 +374,6 @@ namespace Hugo.Core.Common
         }
 
         /// <summary>
-        /// 将Json字符串反序列化为对象
-        /// </summary>
-        /// <typeparam name="T">对象类型</typeparam>
-        /// <param name="jsonStr">Json字符串</param>
-        /// <returns></returns>
-        public static T ToObject<T>(this string jsonStr)
-        {
-            return JsonConvert.DeserializeObject<T>(jsonStr);
-        }
-
-        /// <summary>
         /// 删除Json字符串中键中的@符号
         /// </summary>
         /// <param name="jsonStr">json字符串</param>
@@ -394,17 +383,6 @@ namespace Hugo.Core.Common
             Regex reg = new Regex("\"@([^ \"]*)\"\\s*:\\s*\"(([^ \"]+\\s*)*)\"");
             string strPatten = "\"$1\":\"$2\"";
             return reg.Replace(jsonStr, strPatten);
-        }
-
-        /// <summary>
-        /// 将Json字符串反序列化为对象
-        /// </summary>
-        /// <param name="jsonStr">json字符串</param>
-        /// <param name="type">对象类型</param>
-        /// <returns></returns>
-        public static object ToObject(this string jsonStr, Type type)
-        {
-            return JsonConvert.DeserializeObject(jsonStr, type);
         }
 
         /// <summary>
