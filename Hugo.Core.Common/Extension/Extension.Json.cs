@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using Hugo.Core.Common.NewtonsoftExtension;
+using Newtonsoft.Json;
 using System;
 
 namespace Hugo.Core.Common
@@ -16,13 +16,14 @@ namespace Hugo.Core.Common
         public static JsonSerializerSettings DefaultJsonSetting = new JsonSerializerSettings
         {
             // 数据格式按原样输出 不使用驼峰样式的key
-            ContractResolver = new DefaultContractResolver(),
+            //ContractResolver = new DefaultContractResolver(),
+            ContractResolver = new CustomContractResolver(),// 自定义解析器,继承自DefaultContractResolver
             // 数据格式按原样输出 - 解析类型（驼峰大小写属性名称）的成员映射
             //ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            // 获取或设置在序列化和反序列化期间如何处理空值 - 忽略
+            //NullValueHandling = NullValueHandling.Ignore,
             // 获取或设置如何处理引用循环 - 忽略
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            // 获取或设置在序列化和反序列化期间如何处理空值 - 忽略
-            NullValueHandling = NullValueHandling.Ignore,
             // 获取或设置处理日期格式 （ISO 8601 格式-默认 ，例如“2012-03-21T05:40Z”）（Microsoft JSON 格式，例如“\/Date（1198908717056）\/）”）
             DateFormatHandling = DateFormatHandling.MicrosoftDateFormat,
             // 获取或设置日期格式字符串

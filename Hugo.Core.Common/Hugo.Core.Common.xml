@@ -1846,6 +1846,43 @@
             <param name="type">对象类型</param>
             <returns></returns>
         </member>
+        <member name="M:Hugo.Core.Common.NewtonsoftExtension.CustomContractResolver.CreateProperties(System.Type,Newtonsoft.Json.MemberSerialization)">
+            <summary>
+            创建属性
+            </summary>
+            <param name="type">类型</param>
+            <param name="memberSerialization">序列化成员</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.NewtonsoftExtension.CustomContractResolver.ResolvePropertyName(System.String)">
+            <summary>
+            属性名称小写输出
+            </summary>
+            <param name="propertyName">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.NewtonsoftExtension.StringNullToEmptyValueProvider.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="memberInfo"></param>
+        </member>
+        <member name="M:Hugo.Core.Common.NewtonsoftExtension.StringNullToEmptyValueProvider.GetValue(System.Object)">
+            <inheritdoc />
+            <summary>
+            获取Value
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.Common.NewtonsoftExtension.StringNullToEmptyValueProvider.SetValue(System.Object,System.Object)">
+            <inheritdoc />
+            <summary>
+            设置Value
+            </summary>
+            <param name="target"></param>
+            <param name="value"></param>
+        </member>
         <member name="T:Hugo.Core.Common.Filter.BaseActionFilterAsync">
             <summary>
             过滤器基类
