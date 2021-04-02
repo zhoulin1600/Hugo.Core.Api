@@ -48,7 +48,7 @@ namespace Hugo.Core.Common.MessageQueue
     /// </summary>
     public static class RedisMQKey
     {
-        public const string TESTKEY = "Test";
+        public const string MQTESTKEY = "MQTEST";
     }
 
 }

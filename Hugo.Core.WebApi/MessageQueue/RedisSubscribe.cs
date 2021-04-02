@@ -18,10 +18,10 @@ namespace Hugo.Core.WebApi.MessageQueue
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        [Subscribe(RedisMQKey.TESTKEY)]
+        [Subscribe(RedisMQKey.MQTESTKEY)]
         private async Task SubRedisTest1(string msg)
         {
-            Console.WriteLine($"SubRedisTest1：队列{RedisMQKey.TESTKEY} 消费到/接受到 消息:{msg}");
+            Console.WriteLine($"SubRedisTest1：队列{RedisMQKey.MQTESTKEY} 消费到/接受到 消息:{msg}");
 
             await Task.CompletedTask;
         }
@@ -31,10 +31,10 @@ namespace Hugo.Core.WebApi.MessageQueue
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        [Subscribe(RedisMQKey.TESTKEY)]
+        [Subscribe(RedisMQKey.MQTESTKEY)]
         private async Task SubRedisTest2(string msg)
         {
-            Console.WriteLine($"SubRedisTest2：队列{RedisMQKey.TESTKEY} 消费到/接受到 消息:{msg}");
+            Console.WriteLine($"SubRedisTest2：队列{RedisMQKey.MQTESTKEY} 消费到/接受到 消息:{msg}");
 
             await Task.CompletedTask;
         }

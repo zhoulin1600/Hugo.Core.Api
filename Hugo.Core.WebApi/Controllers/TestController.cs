@@ -24,7 +24,7 @@ namespace Hugo.Core.WebApi.Controllers
     /// <summary>
     /// 测试API控制器
     /// </summary>
-    //[Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     //[ApiController]
     //[Authorize]
     public class TestController : BaseController
@@ -58,7 +58,7 @@ namespace Hugo.Core.WebApi.Controllers
         {
             for (int i = 0; i < 20; i++)
             {
-                await RedisHelper.LPushAsync<string>(RedisMQKey.TESTKEY, i.ToString());
+                await RedisHelper.LPushAsync<string>(RedisMQKey.MQTESTKEY, i.ToString());
             }
             
         }
