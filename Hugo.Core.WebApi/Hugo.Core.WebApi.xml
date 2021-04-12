@@ -389,10 +389,34 @@
             测试API控制器
             </summary>
         </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisCache">
+            <summary>
+            Redis缓存测试
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisQueue(System.String)">
             <summary>
-            转为有序的GUID
+            Redis队列测试
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisSeckill">
+            <summary>
+            Redis秒杀抢购测试
+            </summary>
+            <remarks>
+            Redis：单线程多进程模式，只有一个执行流，10万QPS，没有线程安全问题。
+            请求先走Redis（性能高），做到限流，IncrBy（+1返回余额，原子性防止超卖）
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisDistributedLock">
+            <summary>
+            Redis分布式锁测试
+            </summary>
+            <remarks>
+            </remarks>
             <returns></returns>
         </member>
         <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestJobStar">
@@ -464,12 +488,6 @@
         <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestSignalR">
             <summary>
             SignalR测试
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hugo.Core.WebApi.Controllers.TestController.TestRedisCache">
-            <summary>
-            Redis缓存测试
             </summary>
             <returns></returns>
         </member>

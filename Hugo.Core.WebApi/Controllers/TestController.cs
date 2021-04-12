@@ -18,6 +18,7 @@ using NodaTime.Extensions;
 using Google.Protobuf.WellKnownTypes;
 using Hugo.Core.Common.Auth;
 using Hugo.Core.Common.MessageQueue;
+using System.Threading;
 
 namespace Hugo.Core.WebApi.Controllers
 {
@@ -27,6 +28,7 @@ namespace Hugo.Core.WebApi.Controllers
     [Route("api/[controller]/[action]")]
     //[ApiController]
     //[Authorize]
+    [AllowAnonymous]
     public class TestController : BaseController
     {
         private readonly IDistributedCache distributedCache;
@@ -49,7 +51,24 @@ namespace Hugo.Core.WebApi.Controllers
 
 
         /// <summary>
-        /// 转为有序的GUID
+        /// Redis缓存测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> TestRedisCache()
+        {
+            await distributedCache.SetObjectAsync("Test:distributedCache", "这里使用distributedCache缓存Set");
+            await RedisHelper.SetAsync("Test:RedisHelper", "这里使用RedisHelper缓存Set");
+
+            var distributedCacheGet = await distributedCache.GetObjectAsync<string>("Test:distributedCache");
+            var redisHelperGet = await RedisHelper.GetAsync<string>("Test:RedisHelper");
+
+            var result = new { distributedCacheGet, redisHelperGet };
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Redis队列测试
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -60,10 +79,97 @@ namespace Hugo.Core.WebApi.Controllers
             {
                 await RedisHelper.LPushAsync<string>(RedisMQKey.MQTESTKEY, i.ToString());
             }
-            
         }
 
+        /// <summary>
+        /// Redis秒杀抢购测试
+        /// </summary>
+        /// <remarks>
+        /// Redis：单线程多进程模式，只有一个执行流，10万QPS，没有线程安全问题。
+        /// 请求先走Redis（性能高），做到限流，IncrBy（+1返回余额，原子性防止超卖）
+        /// </remarks>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task TestRedisSeckill()
+        {
+            Console.WriteLine("Redis秒杀抢购测试");
+            //初始化 
+            var seckillKey = $"Seckill:{DateTime.Now.Ticks}";
+            await RedisHelper.SetAsync(seckillKey, 0, TimeSpan.FromMinutes(10));
 
+            //开辟10个线程并发抢购5件商品
+            for (int i = 1; i <= 10; i++)
+            {
+                var k = i;
+                //并发测试
+                Task.Run(() =>
+                {
+                    long number = RedisHelper.IncrBy(seckillKey);
+
+                    if (number <= 5)
+                    {
+                        Console.WriteLine($"用户：{k}，秒杀成功");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"用户：{k}，秒杀失败");
+                    }
+
+                });
+            }
+
+        }
+
+        private static int _count = 0;
+        /// <summary>
+        /// Redis分布式锁测试
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task TestRedisDistributedLock()
+        {
+            Console.WriteLine("Redis分布式锁测试");
+            //初始化 
+            _count = 0;
+
+            for (int i = 1; i <= 10; i++)
+            {
+                var k = i;
+                Task.Run(() =>
+                {
+                    var redislock = RedisHelper.Lock("LockKey", 2);
+
+                    try
+                    {
+                        if (redislock != null)
+                        {
+                            //取到锁,执行具体业务
+                            _count++;
+                            Console.WriteLine("我拿到锁了++++++++,我是: " + k + " ,count现在值:" + _count + " ,当前时间: " + DateTime.Now);
+                            //做些花时间的事情
+                            //Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.WriteLine("其他人在用,我是: " + k + " ,count现在值:" + _count + " ,当前时间: " + DateTime.Now);
+                        }
+                    }
+                    finally
+                    {
+                        if (redislock != null)
+                            redislock.Unlock();
+                    }
+                   
+                });
+                //Thread.Sleep(100);
+            }
+
+            Console.WriteLine("count=" + _count);
+        }
+        
         /// <summary>
         /// Quartz计划任务测试
         /// </summary>
@@ -271,23 +377,6 @@ namespace Hugo.Core.WebApi.Controllers
             });
 
             return Success(guid);
-        }
-
-        /// <summary>
-        /// Redis缓存测试
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> TestRedisCache()
-        {
-            await distributedCache.SetObjectAsync("Test:distributedCache", "这里使用distributedCache缓存Set");
-            await RedisHelper.SetAsync("Test:RedisHelper", "这里使用RedisHelper缓存Set");
-
-            var distributedCacheGet = await distributedCache.GetObjectAsync<string>("Test:distributedCache");
-            var redisHelperGet = await RedisHelper.GetAsync<string>("Test:RedisHelper");
-
-            var result = new { distributedCacheGet, redisHelperGet };
-            return Ok(result);
         }
 
         /// <summary>
